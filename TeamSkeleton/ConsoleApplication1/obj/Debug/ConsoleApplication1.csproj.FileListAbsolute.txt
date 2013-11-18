@@ -1,6 +1,0 @@
-E:\Dropbox\Telerik Projects\OOPTeamWork\TeamSkeleton\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-E:\Dropbox\Telerik Projects\OOPTeamWork\TeamSkeleton\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
-E:\Dropbox\Telerik Projects\OOPTeamWork\TeamSkeleton\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-E:\Dropbox\Telerik Projects\OOPTeamWork\TeamSkeleton\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-E:\Dropbox\Telerik Projects\OOPTeamWork\TeamSkeleton\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-E:\Dropbox\Telerik Projects\OOPTeamWork\TeamSkeleton\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

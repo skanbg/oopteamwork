@@ -11,6 +11,7 @@ namespace WarehouseSystem
         private double display;
         private int capacity;
         private Color color;
+
         public ElectronicObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Color color, double display, int capacity)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {
@@ -19,15 +20,16 @@ namespace WarehouseSystem
             this.color = color;
         }
 
+        #region Properties
         public double Display
         {
             get
             {
-                throw new NotImplementedException();
+                return this.display;
             }
             set
             {
-                throw new NotImplementedException();
+                this.display = value;
             }
         }
 
@@ -35,11 +37,11 @@ namespace WarehouseSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return this.capacity;
             }
             set
             {
-                throw new NotImplementedException();
+                this.capacity = value;
             }
         }
 
@@ -47,12 +49,13 @@ namespace WarehouseSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return this.color;
             }
             set
             {
-                throw new NotImplementedException();
+                this.color = value;
             }
-        }
+        } 
+        #endregion
     }
 }

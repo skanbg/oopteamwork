@@ -18,15 +18,16 @@ namespace WarehouseSystem
             this.weight = weight;
         }
 
+        #region Properties
         public Dimensions Dimensions
         {
             get
             {
-                throw new NotImplementedException();
+                return this.dimensions;
             }
             set
             {
-                throw new NotImplementedException();
+                this.dimensions = value;
             }
         }
 
@@ -34,12 +35,13 @@ namespace WarehouseSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return this.weight;
             }
             set
             {
-                throw new NotImplementedException();
+                this.weight = value;
             }
-        }
+        } 
+        #endregion
     }
 }

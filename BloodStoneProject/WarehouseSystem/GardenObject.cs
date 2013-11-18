@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace WarehouseSystem
 {
     public class GardenObject : StoreObject, IMeasureable
     {
-        private string dimensions;
+        private Dimensions dimensions;
         private double weight;
-        public GardenObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, string dimensions, double weight)
+        public GardenObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Dimensions dimensions, double weight)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {
             this.dimensions = dimensions;
             this.weight = weight;
         }
 
-        public string Dimensions
+        public Dimensions Dimensions
         {
             get
             {

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="WarehouseSystem.App" Collapsed="true">
-    <Position X="16.5" Y="0.5" Width="1.5" />
+    <Position X="6.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WarehouseSystem.MainWindow" Collapsed="true">
-    <Position X="18.25" Y="0.5" Width="1.5" />
+    <Position X="10.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
@@ -79,75 +79,75 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WarehouseSystem.Properties.Resources" Collapsed="true">
-    <Position X="20" Y="0.5" Width="1.5" />
+    <Position X="12" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="WarehouseSystem.Properties.Settings" Collapsed="true">
-    <Position X="16.5" Y="1.5" Width="1.5" />
+    <Position X="8.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Interface Name="ConsoleApplication1.IColorable" Collapsed="true">
-    <Position X="16.5" Y="2.75" Width="1.5" />
+    <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>IColorable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ConsoleApplication1.IDigital" Collapsed="true">
-    <Position X="18.25" Y="2.75" Width="1.5" />
+    <Position X="10" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IElectronic.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ConsoleApplication1.IMeasureable" Collapsed="true">
-    <Position X="20" Y="2.75" Width="1.5" />
+    <Position X="11.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IMeasureable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ConsoleApplication1.IStoreObject" Collapsed="true">
-    <Position X="16.5" Y="3.5" Width="1.5" />
+    <Position X="8.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAQAgAAgAAAAAAAAAAAAAAAAAAAgAgAAACAA=</HashCode>
       <FileName>IStoreObjects.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ConsoleApplication1.IToolable" Collapsed="true">
-    <Position X="18.25" Y="3.5" Width="1.5" />
+  <Interface Name="ConsoleApplication1.IMaterial" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IToolable.cs</FileName>
+      <FileName>IMaterial.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ConsoleApplication1.IVehicle" Collapsed="true">
-    <Position X="20" Y="3.5" Width="1.5" />
+    <Position X="11.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IVehicle.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="ConsoleApplication1.Branch" Collapsed="true">
-    <Position X="16.5" Y="4.5" Width="1.5" />
+    <Position X="8.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAECAAAAgAAAAAAABAAAIABAAAAAIAAAIAAAAAA=</HashCode>
       <FileName>Branch.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ConsoleApplication1.Color" Collapsed="true">
-    <Position X="18.25" Y="4.5" Width="1.5" />
+    <Position X="10" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAABAAAAAIAAAAAAAAAAABAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Color.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ConsoleApplication1.Material" Collapsed="true">
-    <Position X="20" Y="4.5" Width="1.5" />
+    <Position X="11.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAACAAAAEAAIAAQAAAA=</HashCode>
       <FileName>Material.cs</FileName>

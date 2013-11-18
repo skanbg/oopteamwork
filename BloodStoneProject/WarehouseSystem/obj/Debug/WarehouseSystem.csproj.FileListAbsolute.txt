@@ -24,3 +24,16 @@ C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj
 C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.csproj.GenerateResource.Cache
 C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.exe
 C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.pdb
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.exe.config
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.exe
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.pdb
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.exe
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.pdb
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.csprojResolveAssemblyReference.cache
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\MainWindow.baml
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\MainWindow.g.cs
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\App.g.cs
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem_MarkupCompile.cache
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.g.resources
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.Properties.Resources.resources
+C:\Users\Pechi\Desktop\TeamWork\Bloodstone\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.csproj.GenerateResource.Cache

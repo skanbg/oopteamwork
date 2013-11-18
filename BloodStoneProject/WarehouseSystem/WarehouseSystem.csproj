@@ -74,7 +74,7 @@
     <Compile Include="IElectronic.cs" />
     <Compile Include="IMeasureable.cs" />
     <Compile Include="IStoreObjects.cs" />
-    <Compile Include="IToolable.cs" />
+    <Compile Include="IMaterial.cs" />
     <Compile Include="IVehicle.cs" />
     <Compile Include="MachineryObject.cs" />
     <Compile Include="MainWindow.xaml.cs">

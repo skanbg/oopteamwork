@@ -4,14 +4,15 @@
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
         <StackPanel Orientation="Horizontal" Height="350" Width="525" Background="Azure">
-            <TabControl Height="350" Width="525">
-                <TabItem Header="Categories">
-                    List of categories
+            <TabControl Height="350" Width="525">                
+                <TabItem Header="Categories" Name="CategoryTab">
+                    <StackPanel Name="CategoryStackPanel" HorizontalAlignment="Left">                        
+                    </StackPanel>
                 </TabItem>
-                <TabItem Header="Add Product">
+                <TabItem Header="_Add Product" Name="AddProductTab">
                     Code to add product
                 </TabItem>
-                <TabItem Header="Show All">
+                <TabItem Header="Show All" Name="ShowAllTab">
                     All products view
                 </TabItem>
             </TabControl>

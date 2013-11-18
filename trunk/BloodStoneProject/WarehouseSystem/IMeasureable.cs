@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApplication1
+namespace WarehouseSystem
 {
     public interface IMeasureable
     {
-        string Dimensions { get; set; }
+        Dimensions Dimensions { get; set; }
 
         double Weight { get; set; }
     }

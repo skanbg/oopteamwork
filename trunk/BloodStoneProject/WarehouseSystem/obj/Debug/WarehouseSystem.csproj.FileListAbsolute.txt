@@ -11,3 +11,16 @@ E:\Dropbox\Telerik Projects\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\
 E:\Dropbox\Telerik Projects\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.pdb
 E:\Dropbox\Telerik Projects\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.exe
 E:\Dropbox\Telerik Projects\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.pdb
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.exe.config
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.exe
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.pdb
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.csprojResolveAssemblyReference.cache
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\MainWindow.baml
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\MainWindow.g.cs
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\App.g.cs
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem_MarkupCompile.cache
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.g.resources
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.Properties.Resources.resources
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\obj\Debug\WarehouseSystem.csproj.GenerateResource.Cache
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.exe
+C:\Lucho\Telerik Academy\OOPTeamWork\trunk\BloodStoneProject\WarehouseSystem\bin\Debug\WarehouseSystem.pdb

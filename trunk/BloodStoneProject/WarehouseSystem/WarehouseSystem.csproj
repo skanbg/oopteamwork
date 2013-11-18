@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dimensions.cs" />
     <Compile Include="SanitaryObject.cs" />
     <Compile Include="StoreObject.cs" />
     <Compile Include="ToolObject.cs" />

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApplication1
+namespace WarehouseSystem
 {
     public class MachineryObject : StoreObject, IMeasureable
     {
-        private string dimensions;
+        private Dimensions dimensions;
         private double weight;
-        public MachineryObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, string dimensions, double weight)
+        public MachineryObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Dimensions dimensions, double weight)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {
             this.dimensions = dimensions;
             this.weight = weight;
         }
 
-        public string Dimensions
+        public Dimensions Dimensions
         {
             get
             {

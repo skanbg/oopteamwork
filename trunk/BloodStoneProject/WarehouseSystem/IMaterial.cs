@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApplication1
 {
-    public interface IToolable
+    public interface IMaterial
     {
         Material Material { get; set; }
     }

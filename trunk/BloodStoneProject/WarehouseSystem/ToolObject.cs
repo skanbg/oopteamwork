@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    public class ToolObject : StoreObject, IToolable
+    public class ToolObject : StoreObject, IMaterial
     {
         private Material material;
         public ToolObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Material material)

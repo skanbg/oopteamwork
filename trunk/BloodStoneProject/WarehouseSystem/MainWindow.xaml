@@ -2,7 +2,22 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Height="350" Width="525" Background="Azure">
+            <TabControl Height="350" Width="525">
+                <TabItem Header="Categories">
+                    List of categories
+                </TabItem>
+                <TabItem Header="Add Product">
+                    Code to add product
+                </TabItem>
+                <TabItem Header="Show All">
+                    All products view
+                </TabItem>
+            </TabControl>
+            <!--<TabPanel Height="25" Width="100">Categories</TabPanel>-->
+            <!--<TabPanel Height="25" Width="100">Add product</TabPanel>
+            <TabPanel Height="25" Width="100">Show all</TabPanel>-->
+        </StackPanel>
+    </StackPanel>
 </Window>

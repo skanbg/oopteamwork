@@ -10,6 +10,14 @@ namespace WarehouseSystem
     {
         private double width;
         private double height;
+
+        public Dimensions(double width, double height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+
+        #region Propperties
         public double Width
         {
             get
@@ -21,6 +29,7 @@ namespace WarehouseSystem
                 this.width = value;
             }
         }
+
         public double Height
         {
             get
@@ -32,11 +41,8 @@ namespace WarehouseSystem
                 this.height = value;
             }
         }
-        public Dimensions(double width, double height)
-        {
-            this.width = width;
-            this.height = height;
-        }
+
+        #endregion
     }
     
 }

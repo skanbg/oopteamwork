@@ -19,11 +19,11 @@ namespace WarehouseSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return this.color;
             }
             set
             {
-                throw new NotImplementedException();
+                this.color = value;
             }
         }
     }

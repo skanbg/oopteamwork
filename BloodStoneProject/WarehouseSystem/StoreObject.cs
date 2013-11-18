@@ -9,6 +9,7 @@ namespace WarehouseSystem
     public abstract class StoreObject : IStoreObject
     {
 
+        #region AbstractClassProperties
         public string CatalogueNumber { get; set; }
 
         public string Manufacturer { get; set; }
@@ -20,9 +21,11 @@ namespace WarehouseSystem
         public int? Quantity { get; set; }
         public Branch Category { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal Price { get; set; } 
+        #endregion
 
-        public StoreObject(string catalogueNumber, string manufacturer, string model, string description,int? quantity, Branch category, decimal price)
+        #region AbstractClassConstructors
+        public StoreObject(string catalogueNumber, string manufacturer, string model, string description, int? quantity, Branch category, decimal price)
         {
             this.CatalogueNumber = catalogueNumber;
             this.Manufacturer = manufacturer;
@@ -34,8 +37,9 @@ namespace WarehouseSystem
         }
 
         public StoreObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price)
-            : this(catalogueNumber, manufacturer, model,null,null, category, price)
+            : this(catalogueNumber, manufacturer, model, null, null, category, price)
         {
-        }
+        } 
+        #endregion
     }
 }

@@ -8,6 +8,7 @@ namespace WarehouseSystem
     public class ToolObject : StoreObject, IMaterial
     {
         private Material material;
+
         public ToolObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Material material)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {
@@ -18,11 +19,11 @@ namespace WarehouseSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return this.material;
             }
             set
             {
-                throw new NotImplementedException();
+                this.material = value;
             }
         }
     }

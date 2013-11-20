@@ -10,6 +10,10 @@ namespace WarehouseSystem
     {
         private Dimensions dimensions;
         private double weight;
+        public GardenObject()
+        {
+
+        }
         public GardenObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Dimensions dimensions, double weight)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {

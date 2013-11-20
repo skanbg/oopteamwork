@@ -4,17 +4,31 @@
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
         <StackPanel Orientation="Horizontal" Height="350" Width="525" Background="Azure">
-            <TabControl Height="350" Width="525">                
-                <TabItem Header="Categories" Name="CategoryTab">
-                    <StackPanel Name="CategoryStackPanel" HorizontalAlignment="Left">                        
+            <TabControl Height="350" Width="525">
+                <TabItem Header="Categories" x:Name="CategoryTab">
+                    <StackPanel x:Name="CategoryStackPanel" HorizontalAlignment="Left"/>
+                </TabItem>
+                <TabItem Header="_Add Product" x:Name="AddProductTab">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Content="Product name:"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" x:Name="productName" Margin="0,5,10,5"/>
+                            <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Content="Product Category:"/>
+                            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=GetCategories}" x:Name="productCategories" Margin="0,5,10,5" SelectedIndex="0"/>
+                            <!--<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=GetCategories}"></TextBlock>-->
+                        </Grid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="_Add Product" Name="AddProductTab">
-                    Code to add product
-                </TabItem>
-                <TabItem Header="Show All" Name="ShowAllTab">
-                    All products view
-                </TabItem>
+                <TabItem Header="Show All" x:Name="ShowAllTab" Content="All products view"/>
             </TabControl>
             <!--<TabPanel Height="25" Width="100">Categories</TabPanel>-->
             <!--<TabPanel Height="25" Width="100">Add product</TabPanel>

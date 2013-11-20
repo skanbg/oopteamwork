@@ -1,68 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="WarehouseSystem.App" Collapsed="true">
-    <Position X="6.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>App.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="WarehouseSystem.MainWindow" Collapsed="true">
-    <Position X="10.25" Y="3.75" Width="1.5" />
+    <Position X="10" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConsoleApplication1.AutoPartObject" Collapsed="true">
-    <Position X="7.25" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.AutoPartObject" Collapsed="true">
+    <Position X="7.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AutoPartObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.ConstructionObject" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.ConstructionObject" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAIAACAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>ConstructionObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.ElectronicObject" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.ElectronicObject" Collapsed="true">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <InheritanceLine Type="WarehouseSystem.StoreObject" ManuallyRouted="true">
+      <Path>
+        <Point X="8" Y="1.062" />
+        <Point X="8" Y="1.37" />
+        <Point X="5.25" Y="1.37" />
+        <Point X="5.25" Y="2.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAQACAAEAAACAAAAAgAAAAAA=</HashCode>
       <FileName>ElectronicObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.GardenObject" Collapsed="true">
-    <Position X="9.5" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.GardenObject" Collapsed="true">
+    <Position X="9.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAIAACAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>GardenObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.MachineryObject" Collapsed="true">
-    <Position X="14" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.MachineryObject" Collapsed="true">
+    <Position X="14" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAIAACAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>MachineryObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.SanitaryObject" Collapsed="true">
-    <Position X="5" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.SanitaryObject" Collapsed="true">
+    <Position X="2.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAA=</HashCode>
       <FileName>SanitaryObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.StoreObject" Collapsed="true">
+  <Class Name="WarehouseSystem.StoreObject" Collapsed="true">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAQAgAAgAAAAAAAAAAAAAAAAAAAgAgAAACAA=</HashCode>
@@ -70,83 +71,85 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ConsoleApplication1.ToolObject" Collapsed="true">
-    <Position X="11.75" Y="1.75" Width="1.5" />
+  <Class Name="WarehouseSystem.ToolObject" Collapsed="true">
+    <Position X="11.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>ToolObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WarehouseSystem.Properties.Resources" Collapsed="true">
-    <Position X="12" Y="3.75" Width="1.5" />
+  <Class Name="WarehouseSystem.Store">
+    <Position X="2.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Store.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WarehouseSystem.Properties.Settings" Collapsed="true">
-    <Position X="8.25" Y="3.75" Width="1.5" />
+  <Struct Name="WarehouseSystem.Dimensions" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAQAQAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dimensions.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Interface Name="ConsoleApplication1.IColorable" Collapsed="true">
+  </Struct>
+  <Interface Name="WarehouseSystem.IColorable" Collapsed="true">
     <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>IColorable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ConsoleApplication1.IDigital" Collapsed="true">
+  <Interface Name="WarehouseSystem.IDigital" Collapsed="true">
     <Position X="10" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IElectronic.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ConsoleApplication1.IMeasureable" Collapsed="true">
+  <Interface Name="WarehouseSystem.IMeasureable" Collapsed="true">
     <Position X="11.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IMeasureable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ConsoleApplication1.IStoreObject" Collapsed="true">
+  <Interface Name="WarehouseSystem.IStoreObject" Collapsed="true">
     <Position X="8.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAQAgAAgAAAAAAAAAAAAAAAAAAAgAgAAACAA=</HashCode>
       <FileName>IStoreObjects.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ConsoleApplication1.IMaterial" Collapsed="true">
+  <Interface Name="WarehouseSystem.IMaterial" Collapsed="true">
     <Position X="10" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IMaterial.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ConsoleApplication1.IVehicle" Collapsed="true">
+  <Interface Name="WarehouseSystem.IVehicle" Collapsed="true">
     <Position X="11.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IVehicle.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="ConsoleApplication1.Branch" Collapsed="true">
+  <Enum Name="WarehouseSystem.Branch" Collapsed="true">
     <Position X="8.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAECAAAAgAAAAAAABAAAIABAAAAAIAAAIAAAAAA=</HashCode>
       <FileName>Branch.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ConsoleApplication1.Color" Collapsed="true">
+  <Enum Name="WarehouseSystem.Color" Collapsed="true">
     <Position X="10" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAABAAAAAIAAAAAAAAAAABAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Color.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ConsoleApplication1.Material" Collapsed="true">
+  <Enum Name="WarehouseSystem.Material" Collapsed="true">
     <Position X="11.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAACAAAAEAAIAAQAAAA=</HashCode>

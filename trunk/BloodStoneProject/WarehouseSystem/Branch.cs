@@ -8,13 +8,13 @@ namespace WarehouseSystem
 {
     public enum Branch
     {
-        electronics,
-        construction,
-        garden,
-        sanitary,
-        ironware,
-        tools,
-        machinery,
-        auto
+        Electronics,
+        Construction,
+        Garden,
+        Sanitary,
+        Ironware,
+        Tools,
+        Machinery,
+        Auto
     }
 }

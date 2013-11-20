@@ -32,9 +32,8 @@ namespace WarehouseSystem
             DesktopStore desktopStore = new DesktopStore();
             this.DataContext = desktopStore;
             ItemContainer = desktopStore.GetAllProducts();
-            desktopStore.LoadStore();
 
-            LoadCategoryButtons();
+            LoadCategoryTabs();
             LoadCategories(desktopStore);
         }
 
@@ -43,7 +42,7 @@ namespace WarehouseSystem
             this.productCategories.ItemsSource = desktopStore.GetCategories();
         }
 
-        private void LoadCategoryButtons()
+        private void LoadCategoryTabs()
         {
             List<string> categories = null;
             foreach (var item in MainWindow.ItemContainer)
@@ -59,13 +58,34 @@ namespace WarehouseSystem
                 }
             }
 
+            CreateInnerTabsWithContent(categories);
+        }
+
+        private void CreateInnerTabsWithContent(List<string> categories)
+        {
             foreach (var category in categories)
             {
-                Button currentButton = new Button();
-                currentButton.Content = category;
-                currentButton.Margin = new Thickness(3);
-                currentButton.Width = 100;
-                this.CategoryStackPanel.Children.Add(currentButton);
+                TabItem currentItem = new TabItem();
+                currentItem.Header = category;
+                var categoryStackPannel = new StackPanel();
+                var categoryFilter =
+                    from x in ItemContainer
+                    where x.Category.ToString() == category.ToString()
+                    select x;
+
+                foreach (var item in categoryFilter)
+                {
+                    categoryStackPannel.Children.Add(new Label() { Content = item.ToString() });
+                }
+                currentItem.Content = categoryStackPannel;
+                this.CategorySubContainer.Items.Add(currentItem);
+
+
+                //Button currentButton = new Button();
+                //currentButton.Content = category;
+                //currentButton.Margin = new Thickness(3);
+                //currentButton.Width = 100;
+                //this.CategoryStackPanel.Children.Add(currentButton);
             }
         }        
     }

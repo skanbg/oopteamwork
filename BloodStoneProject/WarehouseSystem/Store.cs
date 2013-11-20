@@ -25,12 +25,16 @@ namespace WarehouseSystem
             return this.productsList;
         }
 
-        public List<string> GetCategories
-        {
-            get
+        public List<string> GetCategories()
+        {            
+            var result = new List<string>();
+            foreach (var item in Enum.GetValues(typeof(Branch)))
             {
-                return this.productCategories;
+                result.Add(item.ToString());
             }
+         
+            return result;
+            
         }
 
         public abstract void LoadStore();

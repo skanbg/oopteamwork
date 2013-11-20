@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace WarehouseSystem
 {
@@ -12,7 +14,8 @@ namespace WarehouseSystem
     {
         public override void LoadStore()
         {
-            ////Loading product categories from file
+
+            //Loading product categories from file
             //var categoriesReader = new StreamReader("ProductCategories.txt");
             //var roughCategoriesData = categoriesReader.ReadToEnd();
             //var splitedCategories = roughCategoriesData.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -22,10 +25,10 @@ namespace WarehouseSystem
             //}
 
             //Loading product categories from enumeration Branch
-            foreach (var category in Enum.GetValues(typeof(Branch)))
-            {
-                this.productCategories.Add(category.ToString());
-            }
+            //foreach (var category in Enum.GetValues(typeof(Branch)))
+            //{
+            //    this.productCategories.Add(category.ToString());
+            //}
 
             //Loading products from file
             var productReader = new StreamReader("ProductList.txt");
@@ -51,7 +54,7 @@ namespace WarehouseSystem
                         var property = userSettings.GetProperty(propertyInfos[0]);
                         var type = property.PropertyType;
                         dynamic newValue;
-                        if (type.Name == "Branch")
+                        if(type.Name=="Branch")
                         {
                             newValue = (Branch)int.Parse(propertyInfos[1]);
                         }
@@ -60,9 +63,8 @@ namespace WarehouseSystem
                             newValue = Convert.ChangeType(propertyInfos[1], type);
                         }
                         property.SetValue(currentSettings, newValue);
-
-                        //Test
-                        //var userSettingsTypeProperties = currentSettings.GetType().GetProperty(propertyInfos[0]).GetValue(currentSettings, null).ToString();
+                        
+                        var userSettingsTypeProperties = currentSettings.GetType().GetProperty(propertyInfos[0]).GetValue(currentSettings, null).ToString();
                         //System.Windows.MessageBox.Show(userSettingsTypeProperties);
 
 

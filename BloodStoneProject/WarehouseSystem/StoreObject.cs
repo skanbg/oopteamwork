@@ -25,6 +25,10 @@ namespace WarehouseSystem
         #endregion
 
         #region AbstractClassConstructors
+        protected StoreObject()
+        {
+
+        }
         public StoreObject(string catalogueNumber, string manufacturer, string model, string description, int? quantity, Branch category, decimal price)
         {
             this.CatalogueNumber = catalogueNumber;

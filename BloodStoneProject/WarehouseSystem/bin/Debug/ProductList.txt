@@ -1,5 +1,6 @@
-GardenObject ~obj~ CatalogueNumber~~4abcd6 ~|~ Model~~FirstItem ~|~ Category~~0
+GardenObject ~obj~ CatalogueNumber~~4abcd7 ~|~ Model~~FirstItem ~|~ Category~~0
 GardenObject ~obj~ CatalogueNumber~~4abcd6 ~|~ Model~~2Item ~|~ Category~~1
-GardenObject ~obj~ CatalogueNumber~~4abcd6 ~|~ Model~~3Item ~|~ Category~~2
-GardenObject ~obj~ CatalogueNumber~~4abcd6 ~|~ Model~~4Item ~|~ Category~~3
-GardenObject ~obj~ CatalogueNumber~~4abcd6 ~|~ Model~~5Item ~|~ Category~~4
+GardenObject ~obj~ CatalogueNumber~~4abcd5 ~|~ Model~~3Item ~|~ Category~~2
+GardenObject ~obj~ CatalogueNumber~~4abcd4 ~|~ Model~~4Item ~|~ Category~~3
+GardenObject ~obj~ CatalogueNumber~~4abcd3 ~|~ Model~~5Item ~|~ Category~~4
+GardenObject ~obj~ CatalogueNumber~~4abcd3 ~|~ Model~~5Item ~|~ Category~~2

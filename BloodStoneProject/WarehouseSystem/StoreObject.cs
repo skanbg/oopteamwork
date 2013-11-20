@@ -45,5 +45,22 @@ namespace WarehouseSystem
         {
         } 
         #endregion
+
+        public override string ToString()
+        {
+            var result = new StringBuilder();
+
+            var props = this.GetType().GetProperties();
+
+            foreach (var prop in props)
+            {
+                if (prop != null)
+                {
+                    result.AppendFormat("{0}: {1} | ", prop.Name, prop.GetValue(this, null)); 
+                }
+            }
+
+            return result.ToString();
+        }
     }
 }

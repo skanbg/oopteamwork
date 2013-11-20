@@ -8,7 +8,7 @@ namespace WarehouseSystem
     public abstract class Store
     {
         protected List<StoreObject> productsList = new List<StoreObject>();
-        protected List<string> productCategories = new List<string>();
+        protected List<string> productCategories = GetCategories();
 
         public Store()
         {
@@ -25,12 +25,16 @@ namespace WarehouseSystem
             return this.productsList;
         }
 
-        public List<string> GetCategories
+        public static List<string> GetCategories()
         {
-            get
+            var result = new List<string>();
+            foreach (var item in Enum.GetValues(typeof(Branch)))
             {
-                return this.productCategories;
+                result.Add(item.ToString());
             }
+         
+            return result;
+            
         }
 
         public abstract void LoadStore();

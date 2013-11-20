@@ -33,6 +33,7 @@ namespace WarehouseSystem
             this.DataContext = desktopStore;
             ItemContainer = desktopStore.GetAllProducts();
 
+
             // Some sample logics
             //ItemContainer.Add(new ElectronicObject("34244", "Nokia", "n95", Branch.electronics, 150, Color.Black, 4.2, 120));
             //ItemContainer.Add(new ElectronicObject("345fg", "Siemens", "C45", Branch.electronics, 150, Color.Black, 4.2, 120));

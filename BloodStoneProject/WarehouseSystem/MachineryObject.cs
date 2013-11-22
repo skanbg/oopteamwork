@@ -15,8 +15,8 @@ namespace WarehouseSystem
 
         }
 
-        public MachineryObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Dimensions dimensions, double weight)
-            : base(catalogueNumber, manufacturer, model,null,null, category, price)
+        public MachineryObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price, Dimensions dimensions, double weight)
+            : base(catalogueNumber, manufacturer, model, description, quantity,category, price)
         {
             this.dimensions = dimensions;
             this.weight = weight;

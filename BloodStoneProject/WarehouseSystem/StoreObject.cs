@@ -18,7 +18,7 @@ namespace WarehouseSystem
 
         public string Description { get; set; }
 
-        public int? Quantity { get; set; }
+        public int Quantity { get; set; }
         public Branch Category { get; set; }
 
         public decimal Price { get; set; } 
@@ -29,7 +29,7 @@ namespace WarehouseSystem
         {
 
         }
-        public StoreObject(string catalogueNumber, string manufacturer, string model, string description, int? quantity, Branch category, decimal price)
+        public StoreObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price)
         {
             this.CatalogueNumber = catalogueNumber;
             this.Manufacturer = manufacturer;
@@ -39,11 +39,6 @@ namespace WarehouseSystem
             this.Quantity = quantity;
             this.Price = price;
         }
-
-        public StoreObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price)
-            : this(catalogueNumber, manufacturer, model, null, null, category, price)
-        {
-        } 
         #endregion
 
         public override string ToString()

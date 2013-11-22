@@ -12,7 +12,6 @@ namespace WarehouseSystem
         Construction,
         Garden,
         Sanitary,
-        Ironware,
         Tools,
         Machinery,
         Auto

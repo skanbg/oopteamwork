@@ -10,6 +10,11 @@ namespace WarehouseSystem
         private Dimensions dimensions;
         private double weight;
 
+        public MachineryObject()
+        {
+
+        }
+
         public MachineryObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Dimensions dimensions, double weight)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {

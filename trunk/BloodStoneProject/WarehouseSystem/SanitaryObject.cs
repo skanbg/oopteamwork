@@ -16,8 +16,8 @@ namespace WarehouseSystem
         }
 
 
-        public SanitaryObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Color color)
-            : base(catalogueNumber, manufacturer, model,null,null, category, price)
+        public SanitaryObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price, Color color)
+            : base(catalogueNumber, manufacturer, model, description, quantity, category, price)
         {
             this.color = color;            
         }

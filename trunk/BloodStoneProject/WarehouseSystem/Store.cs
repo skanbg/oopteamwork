@@ -34,9 +34,11 @@ namespace WarehouseSystem
                 result.Add(item.ToString());
             }
          
-            return result;
-            
+            return result;            
         }
+
+        public abstract void LoadProduct();
+       
 
         public abstract void LoadStore();
     }

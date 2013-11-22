@@ -16,7 +16,7 @@ namespace WarehouseSystem
 
         string Description { get; set; }
 
-        int? Quantity { get; set; }
+        int Quantity { get; set; }
 
         Branch Category { get; set; }
 

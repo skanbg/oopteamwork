@@ -18,8 +18,8 @@ namespace WarehouseSystem
 
         }
 
-        public ElectronicObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Color color, double display, int capacity)
-            : base(catalogueNumber, manufacturer, model,null,null, category, price)
+        public ElectronicObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price, Color color, double display, int capacity)
+            : base(catalogueNumber, manufacturer, model, description, quantity, category, price)
         {
             this.display = display;
             this.capacity = capacity;

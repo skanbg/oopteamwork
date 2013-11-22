@@ -93,7 +93,7 @@ namespace WarehouseSystem
             //System.Windows.MessageBox.Show(this.productsList[2].Model);
         }
 
-        public override void LoadProduct()
+        public static void LoadProduct()
         {
             throw new NotImplementedException();
         }

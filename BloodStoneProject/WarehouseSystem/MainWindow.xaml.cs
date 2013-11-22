@@ -25,6 +25,7 @@ namespace WarehouseSystem
     public partial class MainWindow : Window
     {
         public static List<StoreObject> ItemContainer = new List<StoreObject>();
+        public static List<UIElement> PropertyContents = new List<UIElement>();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,8 +35,6 @@ namespace WarehouseSystem
 
             LoadCategoryTabs();
             LoadCategories(desktopStore);
-
-
         }
 
         private void LoadCategories(DesktopStore desktopStore)
@@ -143,8 +142,15 @@ namespace WarehouseSystem
                 this.AddTabChildStack.Children.Add(new Label { Content = item.Name + ":" });
                 if(item.PropertyType.Name == "Branch")
                 {
-                    this.AddTabChildStack.Children.Add(new TextBox { Text = this.productCategories.SelectedItem.ToString(), Width = 150, 
-                        HorizontalAlignment = HorizontalAlignment.Left , Margin = new Thickness(10,0,0,3)});
+                    TextBox box = new TextBox
+                    {
+                        Text = this.productCategories.SelectedItem.ToString(),
+                        Width = 150,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Margin = new Thickness(10, 0, 0, 3)
+                    };
+                    this.AddTabChildStack.Children.Add(box);
+                    PropertyContents.Add(box);
                 }
                 else if(item.PropertyType.Name == "Color")
                 {
@@ -170,14 +176,22 @@ namespace WarehouseSystem
                 }
                 else
                 {
-                    this.AddTabChildStack.Children.Add(new TextBox
-                    {   MaxLength = 20,       
+                    TextBox box = new TextBox
+                    {
+                        MaxLength = 20,
                         Width = 150,
                         HorizontalAlignment = HorizontalAlignment.Left,
                         Margin = new Thickness(10, 0, 0, 3)
-                    });
+                    };
+                    this.AddTabChildStack.Children.Add(box);
+                    
                 }
 	        }
         }
+
+        private void AddProduct(object sender, RoutedEventArgs e)
+        {
+            DesktopStore.LoadProduct();
+        }       
     }
 }

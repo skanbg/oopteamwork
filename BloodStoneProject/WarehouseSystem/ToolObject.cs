@@ -9,6 +9,11 @@ namespace WarehouseSystem
     {
         private Material material;
 
+        public ToolObject()
+        {
+
+        }
+
         public ToolObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Material material)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {

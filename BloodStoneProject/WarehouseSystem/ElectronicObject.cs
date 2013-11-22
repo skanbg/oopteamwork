@@ -12,6 +12,12 @@ namespace WarehouseSystem
         private int capacity;
         private Color color;
 
+
+        public ElectronicObject()
+        {
+
+        }
+
         public ElectronicObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Color color, double display, int capacity)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {

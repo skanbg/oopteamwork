@@ -40,6 +40,8 @@ namespace WarehouseSystem
         private void LoadCategories(DesktopStore desktopStore)
         {
             this.productCategories.ItemsSource = desktopStore.GetCategories();
+
+            
         }
 
         private void LoadCategoryTabs()
@@ -87,6 +89,86 @@ namespace WarehouseSystem
                 //currentButton.Width = 100;
                 //this.CategoryStackPanel.Children.Add(currentButton);
             }
-        }        
+        }
+
+        private void ChangeValue(object sender, SelectionChangedEventArgs e)
+        {
+            
+            switch (this.productCategories.SelectedIndex)
+            {
+                case 1: ElectronicObject eo = new ElectronicObject();
+                    GenerateInputFields(eo);
+                   break;
+                case 2: ConstructionObject co = new ConstructionObject();
+                   GenerateInputFields(co);
+                   break;
+                case 3: GardenObject go = new GardenObject();
+                   GenerateInputFields(go);
+                   break;
+                case 4: SanitaryObject so = new SanitaryObject();
+                   GenerateInputFields(so);
+                   break;
+                case 5: ToolObject to = new ToolObject();
+                   GenerateInputFields(to);
+                   break;
+                case 6: MachineryObject mo = new MachineryObject();
+                   GenerateInputFields(mo);
+                   break;
+                case 7: AutoPartObject ao = new AutoPartObject();
+                   GenerateInputFields(ao);
+                   break;                
+                default:
+                    break;
+            } 
+            
+        }
+
+        private void GenerateInputFields(StoreObject obj)
+        {
+            AddTabChildStack.Children.RemoveRange(1, AddTabChildStack.Children.Count -1);
+            var list =  obj.GetType().GetProperties();
+            
+
+            foreach (var item in list)
+	        {
+                this.AddTabChildStack.Children.Add(new Label { Content = item.Name });
+                if(item.PropertyType.Name == "Branch")
+                {
+                    this.AddTabChildStack.Children.Add(new TextBox { Text = this.productCategories.SelectedItem.ToString(), Width = 150, 
+                        HorizontalAlignment = HorizontalAlignment.Left , Margin = new Thickness(10,0,0,3)});
+                }
+                else if(item.PropertyType.Name == "Color")
+                {
+                    var colors = new List<string>();
+                    
+                    foreach (var color in Enum.GetValues(typeof(Color)))
+                    {
+                        colors.Add(color.ToString());
+                    }
+                    this.AddTabChildStack.Children.Add(new ComboBox { ItemsSource = colors,Width = 150, 
+                        HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(10,0,0,3) });
+                }
+                else if (item.PropertyType.Name == "Material")
+                {
+                    var materials = new List<string>();
+
+                    foreach (var material in Enum.GetValues(typeof(Material)))
+                    {
+                        materials.Add(material.ToString());
+                    }
+                    this.AddTabChildStack.Children.Add(new ComboBox { ItemsSource = materials, Width = 150, 
+                        HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(10,0,0,3)});
+                }
+                else
+                {
+                    this.AddTabChildStack.Children.Add(new TextBox
+                    {   MaxLength = 20,       
+                        Width = 150,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Margin = new Thickness(10, 0, 0, 3)
+                    });
+                }
+	        }
+        }
     }
 }

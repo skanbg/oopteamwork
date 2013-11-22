@@ -9,6 +9,13 @@ namespace WarehouseSystem
     public class SanitaryObject : StoreObject, IColorable
     {
         private Color color;
+
+        public SanitaryObject()
+        {
+
+        }
+
+
         public SanitaryObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, Color color)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {

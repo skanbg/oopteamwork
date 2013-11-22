@@ -8,6 +8,12 @@ namespace WarehouseSystem
     public class AutoPartObject : StoreObject, IVehicle
     {
         private string aboutVehicle;
+
+        public AutoPartObject()
+        {
+
+        }
+
         public AutoPartObject(string catalogueNumber, string manufacturer, string model, Branch category, decimal price, string aboutVehicle)
             : base(catalogueNumber, manufacturer, model,null,null, category, price)
         {

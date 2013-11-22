@@ -28,6 +28,7 @@ namespace WarehouseSystem
         public List<string> GetCategories()
         {            
             var result = new List<string>();
+            result.Add("Choose...");
             foreach (var item in Enum.GetValues(typeof(Branch)))
             {
                 result.Add(item.ToString());

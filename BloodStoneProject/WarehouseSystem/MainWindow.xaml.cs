@@ -200,7 +200,7 @@ namespace WarehouseSystem
                         MaxLength = 20,
                         Width = 150,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Margin = new Thickness(10, 0, 0, 3)
+                        Margin = new Thickness(10, 0, 0, 3)                        
                     };
                     this.AddTabChildStack.Children.Add(box);
                     PropertyContents.Add(box);
@@ -241,8 +241,9 @@ namespace WarehouseSystem
                             }
                             else if (propertyType.Name == "Dimensions")
                             {
-                                //TODO: Add logic here to parse Dimensions
-                                parsedValue = new Dimensions(1D, 1D);
+
+                                parsedValue = InstanceStore.ParseDimensions(controlValue.ToString());
+                                //parsedValue = new Dimensions(1, 1);
                             }
                             else
                             {
@@ -301,6 +302,7 @@ namespace WarehouseSystem
                     System.Windows.MessageBox.Show("Product successfully added!");
                     InstanceStore.AddProduct(product as StoreObject);
                     LoadCategoryTabs();
+                    this.productCategories.SelectedIndex = 0; // clears the fields and selects none of the products categories to be added
                 }
             }
             catch (FormatException ex)

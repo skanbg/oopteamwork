@@ -27,17 +27,17 @@ namespace WarehouseSystem
     {
         public static List<StoreObject> ItemContainer = new List<StoreObject>();
         public static List<UIElement> PropertyContents = new List<UIElement>();
-        public static DesktopStore desktopStore = new DesktopStore();
+        public static DesktopStore InstanceStore = new DesktopStore();
 
         public MainWindow()
         {
             InitializeComponent();
-            //DesktopStore desktopStore = new DesktopStore();
-            this.DataContext = desktopStore;
-            ItemContainer = desktopStore.GetAllProducts();
+            //DesktopStore InstanceStore = new DesktopStore();
+            this.DataContext = InstanceStore;
+            ItemContainer = InstanceStore.GetAllProducts();
 
             LoadCategoryTabs();
-            LoadCategories(desktopStore);
+            LoadCategories(InstanceStore);
         }
 
         private void LoadCategories(DesktopStore desktopStore)
@@ -49,6 +49,7 @@ namespace WarehouseSystem
         {
             var existingCategories = ItemContainer.Select(x => x.Category.ToString()).Distinct().ToList<string>();
             CreateInnerTabsWithContent(existingCategories);
+            //System.Windows.MessageBox.Show(ItemContainer.Count.ToString());
             //List<string> categories = null;
             //foreach (var item in MainWindow.ItemContainer)
             //{
@@ -68,6 +69,7 @@ namespace WarehouseSystem
 
         private void CreateInnerTabsWithContent(List<string> categories)
         {
+            this.CategorySubContainer.Items.Clear();
             foreach (var category in categories)
             {
                 TabItem currentItem = new TabItem();
@@ -208,75 +210,109 @@ namespace WarehouseSystem
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
-            //bool addProduct = true;
-            //var enumValue = Enum.Parse(typeof(Branch), productCategories.SelectedValue.ToString(), true);
-            //var getClassNameFromBranch = ((BranchToClassName)((int)enumValue)).ToString();
-            ////System.Windows.MessageBox.Show("WarehouseSystem." + getClassNameFromBranch);
-            //var product = Activator.CreateInstance(Type.GetType("WarehouseSystem." + getClassNameFromBranch, true));
-            //var list = product.GetType().GetProperties();
-            //System.Windows.MessageBox.Show(list[0].ToString());
-            //int propertyIndex = 0;
+            try
+            {
+                bool addProduct = true;
+                var enumValue = Enum.Parse(typeof(Branch), productCategories.SelectedValue.ToString(), true);
+                var getClassNameFromBranch = ((BranchToClassName)((int)enumValue)).ToString();
+                //System.Windows.MessageBox.Show("WarehouseSystem." + getClassNameFromBranch);
+                var product = Activator.CreateInstance(Type.GetType("WarehouseSystem." + getClassNameFromBranch, true));
+                var list = product.GetType().GetProperties();
+                //System.Windows.MessageBox.Show(list[0].ToString());
+                int propertyIndex = 0;
 
-            //foreach (var property in PropertyContents)
-            //{
-            //    var controlType = property.GetType();
+                foreach (var property in PropertyContents)
+                {
+                    var controlType = property.GetType();
 
-            //    if (controlType.Name == "TextBox")
-            //    {
-            //        //System.Windows.MessageBox.Show(property.GetType().GetProperty("Text").GetValue(property).ToString());
-            //        //System.Windows.MessageBox.Show(controlType.GetProperty("Text").ToString());
-            //        if (controlType.GetProperty("Text") != null)
-            //        {
-            //            var controlValue = property.GetType().GetProperty("Text").GetValue(property).ToString();
-            //            var propertyType = list[propertyIndex].PropertyType;
-            //            dynamic parsedValue;
-            //            if (propertyType.Name == "Branch")
-            //            {
-            //                parsedValue = (Branch)int.Parse(controlValue);
-            //            }
-            //            else if(propertyType.Name == "Dimensions")
-            //            {
-            //                parsedValue = new Dimensions();
-            //            }
-            //            else
-            //            {
-            //                parsedValue = Convert.ChangeType(controlValue, propertyType);
-            //            }
-            //            list[propertyIndex].SetValue(product, parsedValue);
-            //        }
-            //        else
-            //        {
-            //            addProduct = false;
-            //        }
-            //    }
-            //    else if (controlType.Name == "ComboBox")
-            //    {
-            //        ////System.Windows.MessageBox.Show(property.GetType().GetProperty("SelectedValue").GetValue(property).ToString());
-            //        //System.Windows.MessageBox.Show(controlType.GetProperty("SelectedValue").ToString());
-            //        //if (controlType.GetProperty("SelectedValue") != null)
-            //        //{
-            //        //    var controlValue = property.GetType().GetProperty("SelectedValue").GetValue(property).ToString();
-            //        //    ((PropertyInfo)list[propertyIndex]).SetValue(product, controlValue);
-            //        //}
-            //        //else
-            //        //{
-            //        //    addProduct = false;
-            //        //}
-            //    }
+                    if (controlType.Name == "TextBox")
+                    {
+                        //System.Windows.MessageBox.Show(property.GetType().GetProperty("Text").GetValue(property).ToString());
+                        //System.Windows.MessageBox.Show(controlType.GetProperty("Text").ToString());
+                        if (controlType.GetProperty("Text") != null)
+                        {
+                            var controlValue = property.GetType().GetProperty("Text").GetValue(property).ToString();
+                            var propertyType = list[propertyIndex].PropertyType;
+                            dynamic parsedValue;
+                            if (propertyType.Name == "Branch")
+                            {
+                                parsedValue = Enum.Parse(typeof(Branch), controlValue);
+                                //parsedValue = (Branch)int.Parse(controlValue);
+                            }
+                            else if (propertyType.Name == "Dimensions")
+                            {
+                                //TODO: Add logic here to parse Dimensions
+                                parsedValue = new Dimensions(1D, 1D);
+                            }
+                            else
+                            {
+                                //System.Windows.MessageBox.Show(controlValue.ToString());
+                                //System.Windows.MessageBox.Show(propertyType.GetTypeInfo().ToString());
+                                parsedValue = Convert.ChangeType(controlValue.ToString(), propertyType.GetTypeInfo());
+                                //parsedValue = Convert.ChangeType(controlValue, typeof(Int32));
+                            }
+                            list[propertyIndex].SetValue(product, parsedValue);
+                        }
+                        else
+                        {
+                            addProduct = false;
+                        }
+                    }
+                    else if (controlType.Name == "ComboBox")
+                    {
+                        //System.Windows.MessageBox.Show(property.GetType().GetProperty("SelectedValue").GetValue(property).ToString());
+                        //System.Windows.MessageBox.Show(controlType.GetProperty("SelectedValue").GetValue(property).ToString());
+                        if (controlType.GetProperty("SelectedValue") != null)
+                        {
+                            var propertyType = list[propertyIndex].PropertyType;
+                            dynamic parsedValue;
+                            var controlValue = property.GetType().GetProperty("SelectedValue").GetValue(property).ToString();
 
-            //    if (addProduct != true)
-            //    {
-            //        System.Windows.MessageBox.Show(propertyIndex.ToString());
-            //        break;
-            //    }
-            //    propertyIndex++;
-            //}
+                            if (propertyType.Name == "Material")
+                            {
+                                parsedValue = Enum.Parse(typeof(Material), controlValue);
+                            }
+                            else if (propertyType.Name == "Color")
+                            {
+                                parsedValue = Enum.Parse(typeof(Color), controlValue);
+                            }
+                            else
+                            {
+                                parsedValue = Convert.ChangeType(controlValue.ToString(), propertyType.GetTypeInfo());
+                            }
+                            list[propertyIndex].SetValue(product, parsedValue);
+                        }
+                        else
+                        {
+                            addProduct = false;
+                        }
+                    }
 
-            //if (addProduct)
-            //{
-            //    desktopStore.AddProduct(product as StoreObject);
-            //    ItemContainer = desktopStore.GetAllProducts();
-            //}
+                    if (addProduct != true)
+                    {
+                        //System.Windows.MessageBox.Show(propertyIndex.ToString());
+                        break;
+                    }
+                    propertyIndex++;
+                }
+
+                if (addProduct)
+                {
+                    System.Windows.MessageBox.Show("Product successfully added!");
+                    InstanceStore.AddProduct(product as StoreObject);
+                    LoadCategoryTabs();
+                }
+            }
+            catch (FormatException ex)
+            {
+                //TODO: Check all control fields(input) for empty value
+                //System.Windows.MessageBox.Show(ex.ToString());
+                System.Windows.MessageBox.Show("Please fill all fields!");
+            }
+            finally
+            {
+                InstanceStore.SaveStore();
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace WarehouseSystem
         public int Quantity { get; set; }
         public Branch Category { get; set; }
 
-        public decimal Price { get; set; } 
+        public decimal Price { get; set; }
         #endregion
 
         #region AbstractClassConstructors
@@ -51,7 +51,7 @@ namespace WarehouseSystem
             {
                 if (prop != null)
                 {
-                    result.AppendFormat("{0}: {1} | ", prop.Name, prop.GetValue(this, null)); 
+                    result.AppendFormat("{0}: {1} | ", prop.Name, prop.GetValue(this, null));
                 }
             }
 

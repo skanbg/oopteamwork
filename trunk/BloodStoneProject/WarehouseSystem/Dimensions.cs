@@ -10,7 +10,6 @@ namespace WarehouseSystem
     {
         private double width;
         private double height;
-
         public Dimensions(double width, double height)
         {
             this.width = width;
@@ -43,6 +42,9 @@ namespace WarehouseSystem
         }
 
         #endregion
+        public override string ToString()
+        {
+            return String.Format("{0}x{1}", this.Width, this.Height);
+        }
     }
-    
 }

@@ -7,7 +7,7 @@ namespace WarehouseSystem
 {
     public class AutoPartObject : StoreObject, IVehicle
     {
-        private string aboutVehicle;
+        private string aboutVehicle { get; set; }
 
         public AutoPartObject()
         {
@@ -15,9 +15,9 @@ namespace WarehouseSystem
         }
 
         public AutoPartObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price, string aboutVehicle)
-            : base(catalogueNumber, manufacturer, model, description,quantity,category,price)
+            : base(catalogueNumber, manufacturer, model, description, quantity, category, price)
         {
-            this.aboutVehicle = aboutVehicle;           
+            this.aboutVehicle = aboutVehicle;
         }
 
         public string AboutVehicle

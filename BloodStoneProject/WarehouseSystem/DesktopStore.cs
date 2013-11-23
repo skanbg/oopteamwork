@@ -78,7 +78,7 @@ namespace WarehouseSystem
                             var property = classType.GetProperty(propertyInfos[0]);
                             var type = property.PropertyType;
                             dynamic newValue;
-                            System.Windows.MessageBox.Show(String.Format("{0}: {1}", type.Name, propertyInfos[1]));
+                            //System.Windows.MessageBox.Show(String.Format("{0}: {1}", type.Name, propertyInfos[1]));
                             if (type.Name == "Branch")
                             {
                                 newValue = Enum.Parse(typeof(Branch), propertyInfos[1]);

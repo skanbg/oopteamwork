@@ -161,5 +161,21 @@ namespace WarehouseSystem
                 }
             }
         }
+
+        public Dimensions ParseDimensions(string dimensions)
+        {
+           if (dimensions.Contains(','))
+	       {
+               string[] dims = dimensions.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+               return new Dimensions(double.Parse(dims[0]), double.Parse(dims[1]));
+	       }
+           else if (dimensions.Contains('x'))
+           {
+               string[] dims = dimensions.Split(new char[] { 'x' }, StringSplitOptions.RemoveEmptyEntries);
+               return new Dimensions(double.Parse(dims[0]), double.Parse(dims[1]));
+           }
+
+           return new Dimensions(0, 0);
+        }
     }
 }

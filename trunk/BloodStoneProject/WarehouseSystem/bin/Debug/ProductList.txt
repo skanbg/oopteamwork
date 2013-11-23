@@ -1,2 +1,5 @@
 ElectronicObject ~obj~ Display~~1 ~|~ Capacity~~1 ~|~ Color~~Black ~|~ CatalogueNumber~~1 ~|~ Manufacturer~~1 ~|~ Model~~1 ~|~ Description~~1 ~|~ Quantity~~1 ~|~ Category~~Electronics ~|~ Price~~1
 ConstructionObject ~obj~ Dimensions~~1x1 ~|~ Weight~~1 ~|~ CatalogueNumber~~1 ~|~ Manufacturer~~1 ~|~ Model~~1 ~|~ Description~~1 ~|~ Quantity~~1 ~|~ Category~~Construction ~|~ Price~~1
+GardenObject ~obj~ Dimensions~~1x1 ~|~ Weight~~23 ~|~ CatalogueNumber~~MF890J ~|~ Manufacturer~~IKEA ~|~ Model~~alabala ~|~ Description~~fancy table ~|~ Quantity~~1 ~|~ Category~~Garden ~|~ Price~~567.0
+AutoPartObject ~obj~ AboutVehicle~~Citroen ZX ~|~ CatalogueNumber~~9800 ~|~ Manufacturer~~Valeo ~|~ Model~~OIp ~|~ Description~~Wiper ~|~ Quantity~~1 ~|~ Category~~Auto ~|~ Price~~23.0
+MachineryObject ~obj~ Dimensions~~34.9x98 ~|~ Weight~~45 ~|~ CatalogueNumber~~fg56 ~|~ Manufacturer~~Bosch ~|~ Model~~vfv ~|~ Description~~Test ~|~ Quantity~~1 ~|~ Category~~Machinery ~|~ Price~~546

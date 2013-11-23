@@ -38,11 +38,11 @@ namespace WarehouseSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return this.weight;
             }
             set
             {
-                throw new NotImplementedException();
+                this.weight = value;
             }
         }
     }

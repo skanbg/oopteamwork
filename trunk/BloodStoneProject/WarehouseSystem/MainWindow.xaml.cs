@@ -311,7 +311,7 @@ namespace WarehouseSystem
             }
             finally
             {
-                InstanceStore.SaveStore();
+                //InstanceStore.SaveStore();
             }
         }
     }

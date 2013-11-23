@@ -16,4 +16,15 @@ namespace WarehouseSystem
         Machinery,
         Auto
     }
+
+    public enum BranchToClassName
+    {
+        ElectronicObject,
+        ConstructionObject,
+        GardenObject,
+        SanitaryObject,
+        ToolObject,
+        MachineryObject,
+        AutoPartObject
+    }
 }

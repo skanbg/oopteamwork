@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Reflection;
 
 namespace WarehouseSystem
 {
@@ -26,10 +27,12 @@ namespace WarehouseSystem
     {
         public static List<StoreObject> ItemContainer = new List<StoreObject>();
         public static List<UIElement> PropertyContents = new List<UIElement>();
+        public static DesktopStore desktopStore = new DesktopStore();
+
         public MainWindow()
         {
             InitializeComponent();
-            DesktopStore desktopStore = new DesktopStore();
+            //DesktopStore desktopStore = new DesktopStore();
             this.DataContext = desktopStore;
             ItemContainer = desktopStore.GetAllProducts();
 
@@ -40,27 +43,27 @@ namespace WarehouseSystem
         private void LoadCategories(DesktopStore desktopStore)
         {
             this.productCategories.ItemsSource = desktopStore.GetCategories();
-
-            
         }
 
         private void LoadCategoryTabs()
         {
-            List<string> categories = null;
-            foreach (var item in MainWindow.ItemContainer)
-            {
-                if (categories == null)
-                {
-                    categories = new List<string>();
-                }
+            var existingCategories = ItemContainer.Select(x => x.Category.ToString()).Distinct().ToList<string>();
+            CreateInnerTabsWithContent(existingCategories);
+            //List<string> categories = null;
+            //foreach (var item in MainWindow.ItemContainer)
+            //{
+            //    if (categories == null)
+            //    {
+            //        categories = new List<string>();
+            //    }
 
-                if (!categories.Contains(item.Category.ToString()))
-                {
-                    categories.Add(item.Category.ToString());
-                }
-            }
+            //    if (!categories.Contains(item.Category.ToString()))
+            //    {
+            //        categories.Add(item.Category.ToString());
+            //    }
+            //}
 
-            CreateInnerTabsWithContent(categories);
+            //CreateInnerTabsWithContent(categories);
         }
 
         private void CreateInnerTabsWithContent(List<string> categories)
@@ -93,54 +96,54 @@ namespace WarehouseSystem
 
         private void ChangeValue(object sender, SelectionChangedEventArgs e)
         {
-            
             switch (this.productCategories.SelectedIndex)
             {
                 case 1: ElectronicObject eo = new ElectronicObject();
                     GenerateInputFields(eo);
                     this.AddTabChildStack.Background = Brushes.LightBlue;
-                   break;
-                case 2: ConstructionObject co = new ConstructionObject();
-                   GenerateInputFields(co);
-                   this.AddTabChildStack.Background = Brushes.LightCyan;
-                   break;
-                case 3: GardenObject go = new GardenObject();
-                   GenerateInputFields(go);
-                   this.AddTabChildStack.Background = Brushes.LightGreen;
-                   break;
-                case 4: SanitaryObject so = new SanitaryObject();
-                   GenerateInputFields(so);
-                   this.AddTabChildStack.Background = Brushes.LightCoral;
-                   break;
-                case 5: ToolObject to = new ToolObject();
-                   GenerateInputFields(to);
-                   this.AddTabChildStack.Background = Brushes.LightGoldenrodYellow;
-                   break;
-                case 6: MachineryObject mo = new MachineryObject();
-                   GenerateInputFields(mo);
-                   this.AddTabChildStack.Background = Brushes.LightSalmon;
-                   break;
-                case 7: AutoPartObject ao = new AutoPartObject();
-                   GenerateInputFields(ao);
-                   this.AddTabChildStack.Background = Brushes.LightGray;
-                   break;
-                default: AddTabChildStack.Children.RemoveRange(1, AddTabChildStack.Children.Count - 1);
-                   AddTabChildStack.Background = Brushes.Transparent;
-                   AddButton.IsEnabled = false;
                     break;
-            }             
+                case 2: ConstructionObject co = new ConstructionObject();
+                    GenerateInputFields(co);
+                    this.AddTabChildStack.Background = Brushes.LightCyan;
+                    break;
+                case 3: GardenObject go = new GardenObject();
+                    GenerateInputFields(go);
+                    this.AddTabChildStack.Background = Brushes.LightGreen;
+                    break;
+                case 4: SanitaryObject so = new SanitaryObject();
+                    GenerateInputFields(so);
+                    this.AddTabChildStack.Background = Brushes.LightCoral;
+                    break;
+                case 5: ToolObject to = new ToolObject();
+                    GenerateInputFields(to);
+                    this.AddTabChildStack.Background = Brushes.LightGoldenrodYellow;
+                    break;
+                case 6: MachineryObject mo = new MachineryObject();
+                    GenerateInputFields(mo);
+                    this.AddTabChildStack.Background = Brushes.LightSalmon;
+                    break;
+                case 7: AutoPartObject ao = new AutoPartObject();
+                    GenerateInputFields(ao);
+                    this.AddTabChildStack.Background = Brushes.LightGray;
+                    break;
+                default: AddTabChildStack.Children.RemoveRange(1, AddTabChildStack.Children.Count - 1);
+                    AddTabChildStack.Background = Brushes.Transparent;
+                    AddButton.IsEnabled = false;
+                    break;
+            }
         }
 
         private void GenerateInputFields(StoreObject obj)
         {
-            AddTabChildStack.Children.RemoveRange(1, AddTabChildStack.Children.Count -1);
-            var list =  obj.GetType().GetProperties();
+            PropertyContents.Clear();
+            AddTabChildStack.Children.RemoveRange(1, AddTabChildStack.Children.Count - 1);
+            var list = obj.GetType().GetProperties();
             AddButton.IsEnabled = true;
 
             foreach (var item in list)
-	        {
+            {
                 this.AddTabChildStack.Children.Add(new Label { Content = item.Name + ":" });
-                if(item.PropertyType.Name == "Branch")
+                if (item.PropertyType.Name == "Branch")
                 {
                     TextBox box = new TextBox
                     {
@@ -152,16 +155,23 @@ namespace WarehouseSystem
                     this.AddTabChildStack.Children.Add(box);
                     PropertyContents.Add(box);
                 }
-                else if(item.PropertyType.Name == "Color")
+                else if (item.PropertyType.Name == "Color")
                 {
                     var colors = new List<string>();
-                    
+
                     foreach (var color in Enum.GetValues(typeof(Color)))
                     {
                         colors.Add(color.ToString());
                     }
-                    this.AddTabChildStack.Children.Add(new ComboBox { ItemsSource = colors,Width = 150, 
-                        HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(10,0,0,3) });
+                    ComboBox comboBox = new ComboBox
+                    {
+                        ItemsSource = colors,
+                        Width = 150,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Margin = new Thickness(10, 0, 0, 3)
+                    };
+                    this.AddTabChildStack.Children.Add(comboBox);
+                    PropertyContents.Add(comboBox);
                 }
                 else if (item.PropertyType.Name == "Material")
                 {
@@ -171,8 +181,15 @@ namespace WarehouseSystem
                     {
                         materials.Add(material.ToString());
                     }
-                    this.AddTabChildStack.Children.Add(new ComboBox { ItemsSource = materials, Width = 150, 
-                        HorizontalAlignment = HorizontalAlignment.Left, Margin = new Thickness(10,0,0,3)});
+                    ComboBox comboBox = new ComboBox
+                    {
+                        ItemsSource = materials,
+                        Width = 150,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Margin = new Thickness(10, 0, 0, 3)
+                    };
+                    this.AddTabChildStack.Children.Add(comboBox);
+                    PropertyContents.Add(comboBox);
                 }
                 else
                 {
@@ -184,14 +201,82 @@ namespace WarehouseSystem
                         Margin = new Thickness(10, 0, 0, 3)
                     };
                     this.AddTabChildStack.Children.Add(box);
-                    
+                    PropertyContents.Add(box);
                 }
-	        }
+            }
         }
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
-            DesktopStore.LoadProduct();
-        }       
+            //bool addProduct = true;
+            //var enumValue = Enum.Parse(typeof(Branch), productCategories.SelectedValue.ToString(), true);
+            //var getClassNameFromBranch = ((BranchToClassName)((int)enumValue)).ToString();
+            ////System.Windows.MessageBox.Show("WarehouseSystem." + getClassNameFromBranch);
+            //var product = Activator.CreateInstance(Type.GetType("WarehouseSystem." + getClassNameFromBranch, true));
+            //var list = product.GetType().GetProperties();
+            //System.Windows.MessageBox.Show(list[0].ToString());
+            //int propertyIndex = 0;
+
+            //foreach (var property in PropertyContents)
+            //{
+            //    var controlType = property.GetType();
+
+            //    if (controlType.Name == "TextBox")
+            //    {
+            //        //System.Windows.MessageBox.Show(property.GetType().GetProperty("Text").GetValue(property).ToString());
+            //        //System.Windows.MessageBox.Show(controlType.GetProperty("Text").ToString());
+            //        if (controlType.GetProperty("Text") != null)
+            //        {
+            //            var controlValue = property.GetType().GetProperty("Text").GetValue(property).ToString();
+            //            var propertyType = list[propertyIndex].PropertyType;
+            //            dynamic parsedValue;
+            //            if (propertyType.Name == "Branch")
+            //            {
+            //                parsedValue = (Branch)int.Parse(controlValue);
+            //            }
+            //            else if(propertyType.Name == "Dimensions")
+            //            {
+            //                parsedValue = new Dimensions();
+            //            }
+            //            else
+            //            {
+            //                parsedValue = Convert.ChangeType(controlValue, propertyType);
+            //            }
+            //            list[propertyIndex].SetValue(product, parsedValue);
+            //        }
+            //        else
+            //        {
+            //            addProduct = false;
+            //        }
+            //    }
+            //    else if (controlType.Name == "ComboBox")
+            //    {
+            //        ////System.Windows.MessageBox.Show(property.GetType().GetProperty("SelectedValue").GetValue(property).ToString());
+            //        //System.Windows.MessageBox.Show(controlType.GetProperty("SelectedValue").ToString());
+            //        //if (controlType.GetProperty("SelectedValue") != null)
+            //        //{
+            //        //    var controlValue = property.GetType().GetProperty("SelectedValue").GetValue(property).ToString();
+            //        //    ((PropertyInfo)list[propertyIndex]).SetValue(product, controlValue);
+            //        //}
+            //        //else
+            //        //{
+            //        //    addProduct = false;
+            //        //}
+            //    }
+
+            //    if (addProduct != true)
+            //    {
+            //        System.Windows.MessageBox.Show(propertyIndex.ToString());
+            //        break;
+            //    }
+            //    propertyIndex++;
+            //}
+
+            //if (addProduct)
+            //{
+            //    desktopStore.AddProduct(product as StoreObject);
+            //    ItemContainer = desktopStore.GetAllProducts();
+            //}
+        }
     }
 }

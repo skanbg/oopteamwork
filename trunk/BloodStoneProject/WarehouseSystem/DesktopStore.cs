@@ -42,16 +42,16 @@ namespace WarehouseSystem
                     //Splitting product type from product properties
                     var splitedProductProperties = productToken.Split(new string[] { " ~obj~ " }, StringSplitOptions.RemoveEmptyEntries);
                     Type classType = Type.GetType("WarehouseSystem." + splitedProductProperties[0].Trim(), true);
-                    var userSettings = classType;
+                    //var userSettings = classType;
                     //Raboti i s dolnoto
                     //var userSettings = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(type => type.Name == splitedProductProperties[0]);
-                    var currentSettings = Activator.CreateInstance(userSettings);
+                    var currentSettings = Activator.CreateInstance(classType);
                     splitedProductProperties = splitedProductProperties[1].Split(new string[] { " ~|~ " }, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (var productProperty in splitedProductProperties)
                     {
                         var propertyInfos = productProperty.Split(new string[] { "~~" }, StringSplitOptions.RemoveEmptyEntries);
-                        var property = userSettings.GetProperty(propertyInfos[0]);
+                        var property = classType.GetProperty(propertyInfos[0]);
                         var type = property.PropertyType;
                         dynamic newValue;
                         if(type.Name=="Branch")
@@ -64,7 +64,7 @@ namespace WarehouseSystem
                         }
                         property.SetValue(currentSettings, newValue);
                         
-                        var userSettingsTypeProperties = currentSettings.GetType().GetProperty(propertyInfos[0]).GetValue(currentSettings, null).ToString();
+                        //var userSettingsTypeProperties = currentSettings.GetType().GetProperty(propertyInfos[0]).GetValue(currentSettings, null).ToString();
                         //System.Windows.MessageBox.Show(userSettingsTypeProperties);
 
 

@@ -1,1 +1,2 @@
+ElectronicObject ~obj~ Display~~1 ~|~ Capacity~~1 ~|~ Color~~Black ~|~ CatalogueNumber~~1 ~|~ Manufacturer~~1 ~|~ Model~~1 ~|~ Description~~1 ~|~ Quantity~~1 ~|~ Category~~Electronics ~|~ Price~~1
 ConstructionObject ~obj~ Dimensions~~1x1 ~|~ Weight~~1 ~|~ CatalogueNumber~~1 ~|~ Manufacturer~~1 ~|~ Model~~1 ~|~ Description~~1 ~|~ Quantity~~1 ~|~ Category~~Construction ~|~ Price~~1

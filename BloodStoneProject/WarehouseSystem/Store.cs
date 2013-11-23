@@ -26,20 +26,21 @@ namespace WarehouseSystem
         }
 
         public List<string> GetCategories()
-        {            
+        {
             var result = new List<string>();
             result.Add("Choose...");
             foreach (var item in Enum.GetValues(typeof(Branch)))
             {
                 result.Add(item.ToString());
             }
-         
-            return result;            
+
+            return result;
         }
 
         //public abstract void LoadProduct();
-       
+
 
         public abstract void LoadStore();
+        public abstract void SaveStore();
     }
 }

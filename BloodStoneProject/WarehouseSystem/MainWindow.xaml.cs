@@ -83,17 +83,17 @@ namespace WarehouseSystem
                     where x.Category.ToString() == category.ToString()
                     select x;
 
+                StackPanel sp = new StackPanel();
                 foreach (var item in categoryFilter)
                 {
                     Button exportButton = new Button { Content = "Export Product", FontWeight = FontWeights.Normal, FontSize = 15, HorizontalAlignment = HorizontalAlignment.Left,
-                        Width = 140, Margin = new Thickness(20,0,0,0)};
+                        Width = 140, Margin = new Thickness(24,0,0,0)};
                     StackPanel itemProps = new StackPanel();
-                    itemProps.Children.Add(new Label { Content = item.ToString() });
+                    itemProps.Children.Add(new Label { Content = item.ToString(), Height = 250 });
                     itemProps.Children.Add(exportButton);
-                    categoryStackPannel.Children.Add(new Expander() { Header = item.Manufacturer + " " + item.Model, Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold });
+                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " " + item.Model, Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold });                    
                 }
-                ScrollViewer sv = new ScrollViewer();
-                sv.Content = CategorySubContainer;
+                categoryStackPannel.Children.Add(new ScrollViewer { Content = sp, CanContentScroll=true, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
                 currentItem.Content = categoryStackPannel;
                 this.CategorySubContainer.Items.Add(currentItem);
             }

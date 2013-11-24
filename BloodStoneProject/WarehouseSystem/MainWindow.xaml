@@ -1,14 +1,17 @@
 ﻿<Window x:Class="WarehouseSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="650" Width="814"
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
     <StackPanel>
-        <StackPanel Orientation="Horizontal" Height="650" Width="800" Background="Azure">
-            <TabControl Height="650" Width="800">
-                <TabItem Header="_Categories" x:Name="CategoryTab">     
-                    <TabControl Name="CategorySubContainer">
-                          
-                    </TabControl>
+        <StackPanel Orientation="Horizontal" Height="610" Width="800" Background="Azure">
+            <TabControl Height="610" Width="800">
+                <TabItem Header="_Categories" x:Name="CategoryTab">
+                    <ScrollViewer CanContentScroll="True">
+                        <TabControl Name="CategorySubContainer">
+
+                        </TabControl>
+                    </ScrollViewer>
                 </TabItem>
                 <TabItem Header="_Add Product" x:Name="AddProductTab">
                     <StackPanel Name="AddTabChildStack">

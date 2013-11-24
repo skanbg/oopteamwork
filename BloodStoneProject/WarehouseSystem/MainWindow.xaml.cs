@@ -60,9 +60,10 @@ namespace WarehouseSystem
             foreach (var category in categories)
             {
                 TabItem currentItem = new TabItem();
-                currentItem.Header = category;
+                currentItem.Background = Brushes.LightSteelBlue;
+                currentItem.Header = "_"+category;
                 var categoryStackPannel = new StackPanel();
-                categoryStackPannel.Background = Brushes.LightSeaGreen;
+                categoryStackPannel.Background = Brushes.Azure;
                 var categoryFilter =
                     from x in ItemContainer
                     where x.Category.ToString() == category.ToString()
@@ -78,13 +79,14 @@ namespace WarehouseSystem
                         FontSize = 15,
                         HorizontalAlignment = HorizontalAlignment.Left,
                         Width = 170,
-                        Margin = new Thickness(24, 0, 0, 0)
+                        Margin = new Thickness(24,0,0,5),
+                        Background = Brushes.LightSalmon
                     };
                     exportButton.Click += ExportProduct;
                     StackPanel itemProps = new StackPanel();
                     itemProps.Children.Add(new Label { Content = item.ToString(), Height = 250 });
                     itemProps.Children.Add(exportButton);
-                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " "+"'"+item.Model +"'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas") });
+                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " "+"'"+item.Model +"'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas"), Background= Brushes.Moccasin, Margin = new Thickness(2) });
                 }
 
                 categoryStackPannel.Children.Add(new ScrollViewer { Content = sp, CanContentScroll = true, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
@@ -316,7 +318,7 @@ namespace WarehouseSystem
         }
 
         private void ExportProduct(object sender, RoutedEventArgs e)
-        {           
+        {   
             InstanceStore.ExportProduct((sender as Button).Content.ToString(), ItemContainer);
             LoadCategoryTabs();
 

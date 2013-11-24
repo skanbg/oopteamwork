@@ -3,3 +3,4 @@ ConstructionObject ~obj~ Dimensions~~1x1 ~|~ Weight~~1 ~|~ CatalogueNumber~~1 ~|
 GardenObject ~obj~ Dimensions~~1x1 ~|~ Weight~~23 ~|~ CatalogueNumber~~MF890J ~|~ Manufacturer~~IKEA ~|~ Model~~alabala ~|~ Description~~fancy table ~|~ Quantity~~1 ~|~ Category~~Garden ~|~ Price~~567.0
 AutoPartObject ~obj~ AboutVehicle~~Citroen ZX ~|~ CatalogueNumber~~9800 ~|~ Manufacturer~~Valeo ~|~ Model~~OIp ~|~ Description~~Wiper ~|~ Quantity~~1 ~|~ Category~~Auto ~|~ Price~~23.0
 MachineryObject ~obj~ Dimensions~~34.9x98 ~|~ Weight~~45 ~|~ CatalogueNumber~~fg56 ~|~ Manufacturer~~Bosch ~|~ Model~~vfv ~|~ Description~~Test ~|~ Quantity~~1 ~|~ Category~~Machinery ~|~ Price~~546
+AutoPartObject ~obj~ AboutVehicle~~OPEL Astra ~|~ CatalogueNumber~~kjlk9009 ~|~ Manufacturer~~Chicho ~|~ Model~~Pesho ~|~ Description~~Bialetka za vectra ~|~ Quantity~~1 ~|~ Category~~Auto ~|~ Price~~15.80

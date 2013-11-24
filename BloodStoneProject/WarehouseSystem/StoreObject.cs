@@ -51,7 +51,7 @@ namespace WarehouseSystem
             {
                 if (prop != null)
                 {
-                    result.AppendFormat("{0}: {1} | ", prop.Name, prop.GetValue(this, null));
+                    result.AppendLine(new string(' ', 3) + prop.Name +": "+ prop.GetValue(this, null));
                 }
             }
 

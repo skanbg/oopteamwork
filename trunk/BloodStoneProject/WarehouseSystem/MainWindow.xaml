@@ -5,9 +5,9 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" Height="650" Width="800" Background="Azure">
             <TabControl Height="650" Width="800">
-                <TabItem Header="_Categories" x:Name="CategoryTab">
+                <TabItem Header="_Categories" x:Name="CategoryTab">     
                     <TabControl Name="CategorySubContainer">
-
+                          
                     </TabControl>
                 </TabItem>
                 <TabItem Header="_Add Product" x:Name="AddProductTab">

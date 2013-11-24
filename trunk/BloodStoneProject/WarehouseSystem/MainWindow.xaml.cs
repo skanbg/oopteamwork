@@ -32,7 +32,8 @@ namespace WarehouseSystem
         public MainWindow()
         {
             InitializeComponent();
-            //DesktopStore InstanceStore = new DesktopStore();
+            //DesktopStore InstanceStore = new DesktopStore();            
+            
             this.DataContext = InstanceStore;
             ItemContainer = InstanceStore.GetAllProducts();
 
@@ -70,11 +71,13 @@ namespace WarehouseSystem
         private void CreateInnerTabsWithContent(List<string> categories)
         {
             this.CategorySubContainer.Items.Clear();
+            
             foreach (var category in categories)
             {
                 TabItem currentItem = new TabItem();
                 currentItem.Header = category;
                 var categoryStackPannel = new StackPanel();
+                categoryStackPannel.Background = Brushes.GreenYellow;
                 var categoryFilter =
                     from x in ItemContainer
                     where x.Category.ToString() == category.ToString()
@@ -82,17 +85,17 @@ namespace WarehouseSystem
 
                 foreach (var item in categoryFilter)
                 {
-                    categoryStackPannel.Children.Add(new Label() { Content = item.ToString() });
+                    Button exportButton = new Button { Content = "Export Product", FontWeight = FontWeights.Normal, FontSize = 15, HorizontalAlignment = HorizontalAlignment.Left,
+                        Width = 140, Margin = new Thickness(20,0,0,0)};
+                    StackPanel itemProps = new StackPanel();
+                    itemProps.Children.Add(new Label { Content = item.ToString() });
+                    itemProps.Children.Add(exportButton);
+                    categoryStackPannel.Children.Add(new Expander() { Header = item.Manufacturer + " " + item.Model, Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold });
                 }
+                ScrollViewer sv = new ScrollViewer();
+                sv.Content = CategorySubContainer;
                 currentItem.Content = categoryStackPannel;
                 this.CategorySubContainer.Items.Add(currentItem);
-
-
-                //Button currentButton = new Button();
-                //currentButton.Content = category;
-                //currentButton.Margin = new Thickness(3);
-                //currentButton.Width = 100;
-                //this.CategoryStackPanel.Children.Add(currentButton);
             }
         }
 
@@ -200,8 +203,9 @@ namespace WarehouseSystem
                         MaxLength = 20,
                         Width = 150,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Margin = new Thickness(10, 0, 0, 3)                        
+                        Margin = new Thickness(10, 0, 0, 3)
                     };
+                    
                     this.AddTabChildStack.Children.Add(box);
                     PropertyContents.Add(box);
                 }

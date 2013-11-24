@@ -39,7 +39,6 @@ namespace WarehouseSystem
 
         //public abstract void LoadProduct();
 
-
         public abstract void LoadStore();
         public abstract void SaveStore();
     }

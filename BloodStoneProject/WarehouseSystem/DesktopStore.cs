@@ -177,5 +177,27 @@ namespace WarehouseSystem
 
            return new Dimensions(0, 0);
         }
+
+        public void ExportProduct(string input, List<StoreObject> ItemContainer)
+        {
+            string[] elements = input.Split(new string[] { " - " }, StringSplitOptions.RemoveEmptyEntries);
+            string catNumber = elements[1];
+
+            foreach (var item in ItemContainer)
+            {
+                if((item.CatalogueNumber == catNumber) && (item.Quantity > 0))
+                {
+                    item.Quantity--;
+                    MessageBox.Show("Product exported!");
+                    break;
+                }
+                else if((item.CatalogueNumber == catNumber) && (item.Quantity == 0))
+                {
+                    MessageBox.Show("Product is out of stock!");
+                    break;
+                }
+            }
+        }
+        
     }
 }

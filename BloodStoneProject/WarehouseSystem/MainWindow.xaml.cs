@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Reflection;
+using System.IO;
 
 namespace WarehouseSystem
 {
@@ -33,7 +34,7 @@ namespace WarehouseSystem
         {
             InitializeComponent();
             //DesktopStore InstanceStore = new DesktopStore();            
-            
+
             this.DataContext = InstanceStore;
             ItemContainer = InstanceStore.GetAllProducts();
 
@@ -50,34 +51,18 @@ namespace WarehouseSystem
         {
             var existingCategories = ItemContainer.Select(x => x.Category.ToString()).Distinct().ToList<string>();
             CreateInnerTabsWithContent(existingCategories);
-            //System.Windows.MessageBox.Show(ItemContainer.Count.ToString());
-            //List<string> categories = null;
-            //foreach (var item in MainWindow.ItemContainer)
-            //{
-            //    if (categories == null)
-            //    {
-            //        categories = new List<string>();
-            //    }
-
-            //    if (!categories.Contains(item.Category.ToString()))
-            //    {
-            //        categories.Add(item.Category.ToString());
-            //    }
-            //}
-
-            //CreateInnerTabsWithContent(categories);
         }
 
         private void CreateInnerTabsWithContent(List<string> categories)
         {
             this.CategorySubContainer.Items.Clear();
-            
+
             foreach (var category in categories)
             {
                 TabItem currentItem = new TabItem();
                 currentItem.Header = category;
                 var categoryStackPannel = new StackPanel();
-                categoryStackPannel.Background = Brushes.GreenYellow;
+                categoryStackPannel.Background = Brushes.LightSeaGreen;
                 var categoryFilter =
                     from x in ItemContainer
                     where x.Category.ToString() == category.ToString()
@@ -86,14 +71,23 @@ namespace WarehouseSystem
                 StackPanel sp = new StackPanel();
                 foreach (var item in categoryFilter)
                 {
-                    Button exportButton = new Button { Content = "Export Product", FontWeight = FontWeights.Normal, FontSize = 15, HorizontalAlignment = HorizontalAlignment.Left,
-                        Width = 140, Margin = new Thickness(24,0,0,0)};
+                    Button exportButton = new Button
+                    {
+                        Content = "Export - " + item.CatalogueNumber,
+                        FontWeight = FontWeights.Normal,
+                        FontSize = 15,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Width = 170,
+                        Margin = new Thickness(24, 0, 0, 0)
+                    };
+                    exportButton.Click += ExportProduct;
                     StackPanel itemProps = new StackPanel();
                     itemProps.Children.Add(new Label { Content = item.ToString(), Height = 250 });
                     itemProps.Children.Add(exportButton);
-                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " " + item.Model, Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold });                    
+                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " "+"'"+item.Model +"'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas") });
                 }
-                categoryStackPannel.Children.Add(new ScrollViewer { Content = sp, CanContentScroll=true, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
+
+                categoryStackPannel.Children.Add(new ScrollViewer { Content = sp, CanContentScroll = true, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
                 currentItem.Content = categoryStackPannel;
                 this.CategorySubContainer.Items.Add(currentItem);
             }
@@ -205,7 +199,7 @@ namespace WarehouseSystem
                         HorizontalAlignment = HorizontalAlignment.Left,
                         Margin = new Thickness(10, 0, 0, 3)
                     };
-                    
+
                     this.AddTabChildStack.Children.Add(box);
                     PropertyContents.Add(box);
                 }
@@ -319,6 +313,13 @@ namespace WarehouseSystem
             {
                 //InstanceStore.SaveStore();
             }
+        }
+
+        private void ExportProduct(object sender, RoutedEventArgs e)
+        {           
+            InstanceStore.ExportProduct((sender as Button).Content.ToString(), ItemContainer);
+            LoadCategoryTabs();
+
         }
     }
 }

@@ -37,7 +37,13 @@
                         </Grid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="_Show All" x:Name="ShowAllTab" Content="All products view" Background="LightSalmon"/>
+                <TabItem Header="_Show All" Name="ShowAllTab" Background="LightSalmon" Height="22" VerticalAlignment="Bottom">
+                    <ScrollViewer CanContentScroll="True">
+                        <StackPanel Name="AllProductsStack">
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
             </TabControl>
             <!--<TabPanel Height="25" Width="100">Categories</TabPanel>-->
             <!--<TabPanel Height="25" Width="100">Add product</TabPanel>

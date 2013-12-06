@@ -40,6 +40,7 @@ namespace WarehouseSystem
 
             LoadCategoryTabs();
             LoadCategories(InstanceStore);
+            GenerateAllProducts();
         }
 
         private void LoadCategories(DesktopStore desktopStore)
@@ -51,6 +52,31 @@ namespace WarehouseSystem
         {
             var existingCategories = ItemContainer.Select(x => x.Category.ToString()).Distinct().ToList<string>();
             CreateInnerTabsWithContent(existingCategories);
+        }
+
+        public void GenerateAllProducts()
+        {
+            this.AllProductsStack.Children.Clear();
+            foreach (var product in ItemContainer)
+            {
+                Button exportButton = new Button
+                {
+                    Content = "Export - " + product.CatalogueNumber,
+                    FontWeight = FontWeights.Normal,
+                    FontSize = 15,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Width = 170,
+                    Margin = new Thickness(24, 0, 0, 5),
+                    Background = Brushes.LightSalmon
+                    
+                };
+                exportButton.Click += ExportProduct;
+                StackPanel itemProps = new StackPanel();
+                itemProps.Children.Add(new Label { Content = product.ToString(), Height = 250 });
+                itemProps.Children.Add(exportButton);
+                this.AllProductsStack.Children.Add(new Expander() { Header = product.Manufacturer + " " + "'" + product.Model + "'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas"), Background = Brushes.Moccasin, Margin = new Thickness(2) });
+            }
+            
         }
 
         private void CreateInnerTabsWithContent(List<string> categories)
@@ -140,6 +166,7 @@ namespace WarehouseSystem
             AddTabChildStack.Children.RemoveRange(1, AddTabChildStack.Children.Count - 1);
             var list = obj.GetType().GetProperties();
             AddButton.IsEnabled = true;
+
 
             foreach (var item in list)
             {
@@ -321,7 +348,7 @@ namespace WarehouseSystem
         {   
             InstanceStore.ExportProduct((sender as Button).Content.ToString(), ItemContainer);
             LoadCategoryTabs();
-
+            GenerateAllProducts();
         }
     }
 }

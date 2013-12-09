@@ -274,6 +274,10 @@ namespace WarehouseSystem
                         {
                             var propertyType = list[propertyIndex].PropertyType;
                             dynamic parsedValue;
+                            if(property.GetType().GetProperty("SelectedValue").GetValue(property) == null)
+                            {
+                                throw new SelectCategoryException();
+                            }
                             var controlValue = property.GetType().GetProperty("SelectedValue").GetValue(property).ToString();
 
                             if (propertyType.Name == "Material")
@@ -290,10 +294,11 @@ namespace WarehouseSystem
                             }
                             list[propertyIndex].SetValue(product, parsedValue);
                         }
-                        catch (NullReferenceException)
+                        catch (SelectCategoryException sce)
                         {
-                            MessageBox.Show("All fields are required!");
+                            MessageBox.Show(sce.Message);
                             addProduct = false;
+                            
                         }
                     }
 

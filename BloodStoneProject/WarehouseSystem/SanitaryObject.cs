@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WarehouseSystem
 {
+    using System;
+
     public class SanitaryObject : StoreObject, IColorable
     {
         private Color color;
 
         public SanitaryObject()
         {
-
         }
-
 
         public SanitaryObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price, Color color)
             : base(catalogueNumber, manufacturer, model, description, quantity, category, price)

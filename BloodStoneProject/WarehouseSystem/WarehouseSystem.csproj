@@ -55,6 +55,8 @@
     </ApplicationDefinition>
     <Compile Include="DesktopStore.cs" />
     <Compile Include="Dimensions.cs" />
+    <Compile Include="IRenderer.cs" />
+    <Compile Include="Renderer.cs" />
     <Compile Include="SanitaryObject.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="StoreObject.cs" />
@@ -74,7 +76,7 @@
     <Compile Include="ElectronicObject.cs" />
     <Compile Include="GardenObject.cs" />
     <Compile Include="IColorable.cs" />
-    <Compile Include="IElectronic.cs" />
+    <Compile Include="IDigital.cs" />
     <Compile Include="IMeasureable.cs" />
     <Compile Include="IStoreObjects.cs" />
     <Compile Include="IMaterial.cs" />

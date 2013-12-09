@@ -1,29 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WarehouseSystem
 {
+    using System;
+    using System.Text;
+
     public abstract class StoreObject : IStoreObject
     {
-
-        #region AbstractClassProperties
-        public string CatalogueNumber { get; set; }
-
-        public string Manufacturer { get; set; }
-
-        public string Model { get; set; }
-
-        public string Description { get; set; }
-
-        public int Quantity { get; set; }
-        public Branch Category { get; set; }
-
-        public decimal Price { get; set; }
-        #endregion
-
         #region AbstractClassConstructors
         protected StoreObject()
         {
@@ -41,6 +23,21 @@ namespace WarehouseSystem
         }
         #endregion
 
+        #region AbstractClassProperties
+        public string CatalogueNumber { get; set; }
+
+        public string Manufacturer { get; set; }
+
+        public string Model { get; set; }
+
+        public string Description { get; set; }
+
+        public int Quantity { get; set; }
+        public Branch Category { get; set; }
+
+        public decimal Price { get; set; }
+        #endregion
+        
         public override string ToString()
         {
             var result = new StringBuilder();

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace WarehouseSystem
 {
+    using System;
+
     public class ToolObject : StoreObject, IMaterial
     {
         private Material material;

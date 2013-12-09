@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace WarehouseSystem
 {
+    using System;
+    using System.Collections.Generic;
+
     public abstract class Store
     {
         protected List<StoreObject> productsList = new List<StoreObject>();
@@ -37,9 +36,8 @@ namespace WarehouseSystem
             return result;
         }
 
-        //public abstract void LoadProduct();
-
         public abstract void LoadStore();
+
         public abstract void SaveStore();
     }
 }

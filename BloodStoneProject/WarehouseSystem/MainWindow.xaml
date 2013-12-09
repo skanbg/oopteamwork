@@ -7,14 +7,14 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" Height="610" Width="432" Background="Azure">
             <TabControl Height="610" Width="432" Background="Azure">
-                <TabItem Header="Ca_tegories" x:Name="CategoryTab" Background="LightSalmon">
+                <TabItem Header="Ca_tegories" x:Name="CategoryTab" Background="Moccasin">
                     <ScrollViewer CanContentScroll="True">
                         <TabControl Name="CategorySubContainer">
 
                         </TabControl>
                     </ScrollViewer>
                 </TabItem>
-                <TabItem Header="A_dd Product" x:Name="AddProductTab" Background="LightSalmon" IsSelected="True">
+                <TabItem Header="A_dd Product" x:Name="AddProductTab" Background="OldLace" IsSelected="True">
                     <StackPanel Name="AddTabChildStack">
                         <Grid>
                             <Grid.RowDefinitions>

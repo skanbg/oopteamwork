@@ -9,14 +9,14 @@ namespace WarehouseSystem
     using System.Windows.Media;
     using System.Reflection;
 
-    public class Renderer: IRenderer
+    public class Renderer : IRenderer
     {
         public static List<StoreObject> ItemContainer = new List<StoreObject>();
         public static List<UIElement> PropertyContents = new List<UIElement>();
         public static DesktopStore InstanceStore = new DesktopStore();
 
         private MainWindow window;
-       
+
         public Renderer(MainWindow window)
         {
             this.window = window;
@@ -45,7 +45,7 @@ namespace WarehouseSystem
         }
 
         public void GenerateAllProducts()
-        {           
+        {
             this.window.AllProductsStack.Children.Clear();
             foreach (var product in ItemContainer)
             {
@@ -107,6 +107,7 @@ namespace WarehouseSystem
                 categoryStackPannel.Children.Add(new ScrollViewer { Content = sp, CanContentScroll = true, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
                 currentItem.Content = categoryStackPannel;
                 this.window.CategorySubContainer.Items.Add(currentItem);
+                GenerateAllProducts();
             }
         }
 
@@ -268,7 +269,8 @@ namespace WarehouseSystem
                     }
                     else if (controlType.Name == "ComboBox")
                     {
-                        if (controlType.GetProperty("SelectedValue") != null)
+
+                        try
                         {
                             var propertyType = list[propertyIndex].PropertyType;
                             dynamic parsedValue;
@@ -288,8 +290,9 @@ namespace WarehouseSystem
                             }
                             list[propertyIndex].SetValue(product, parsedValue);
                         }
-                        else
+                        catch (NullReferenceException)
                         {
+                            MessageBox.Show("All fields are required!");
                             addProduct = false;
                         }
                     }
@@ -307,6 +310,7 @@ namespace WarehouseSystem
                     InstanceStore.AddProduct(product as StoreObject);
                     LoadCategoryTabs();
                     this.window.productCategories.SelectedIndex = 0; // clears the fields and selects none of the products categories to be added
+                    InstanceStore.SaveStore();
                 }
             }
             catch (FormatException ex)
@@ -324,6 +328,7 @@ namespace WarehouseSystem
         private void ExportProduct(object sender, RoutedEventArgs e)
         {
             InstanceStore.ExportProduct((sender as Button).Content.ToString(), ItemContainer);
+            InstanceStore.SaveStore();
             LoadCategoryTabs();
             GenerateAllProducts();
         }

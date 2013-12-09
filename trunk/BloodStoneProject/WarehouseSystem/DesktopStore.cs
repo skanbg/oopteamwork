@@ -11,20 +11,9 @@ namespace WarehouseSystem
     using System.Windows;
 
     public class DesktopStore : Store
-    {
-        ~DesktopStore()
-        {
-            try
-            {
-                SaveStore();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.ToString());
-            }
-        }
+    {        
         public override void LoadStore()
-        {          
+        {
             try
             {
                 //Loading products from file
@@ -34,9 +23,9 @@ namespace WarehouseSystem
                     string productToken = productReader.ReadLine();
 
                     while (productToken != null)
-                    {                                               
+                    {
                         var splitedProductProperties = productToken.Split(new string[] { " ~obj~ " }, StringSplitOptions.RemoveEmptyEntries);
-                        Type classType = Type.GetType("WarehouseSystem." + splitedProductProperties[0].Trim(), true);                        
+                        Type classType = Type.GetType("WarehouseSystem." + splitedProductProperties[0].Trim(), true);
                         var currentSettings = Activator.CreateInstance(classType);
                         splitedProductProperties = splitedProductProperties[1].Split(new string[] { " ~|~ " }, StringSplitOptions.RemoveEmptyEntries);
                         int counter = 0;
@@ -68,10 +57,10 @@ namespace WarehouseSystem
                             {
                                 newValue = Convert.ChangeType(propertyInfos[1], type);
                             }
-                            property.SetValue(currentSettings, newValue);                           
+                            property.SetValue(currentSettings, newValue);
                         }
                         this.AddProduct(currentSettings as StoreObject);
-                        productToken = productReader.ReadLine();                        
+                        productToken = productReader.ReadLine();
                     }
                 }
             }
@@ -111,18 +100,18 @@ namespace WarehouseSystem
 
         public Dimensions ParseDimensions(string dimensions)
         {
-           if (dimensions.Contains(','))
-	       {
-               string[] dims = dimensions.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-               return new Dimensions(double.Parse(dims[0]), double.Parse(dims[1]));
-	       }
-           else if (dimensions.Contains('x'))
-           {
-               string[] dims = dimensions.Split(new char[] { 'x' }, StringSplitOptions.RemoveEmptyEntries);
-               return new Dimensions(double.Parse(dims[0]), double.Parse(dims[1]));
-           }
+            if (dimensions.Contains(','))
+            {
+                string[] dims = dimensions.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                return new Dimensions(double.Parse(dims[0]), double.Parse(dims[1]));
+            }
+            else if (dimensions.Contains('x'))
+            {
+                string[] dims = dimensions.Split(new char[] { 'x' }, StringSplitOptions.RemoveEmptyEntries);
+                return new Dimensions(double.Parse(dims[0]), double.Parse(dims[1]));
+            }
 
-           return new Dimensions(0, 0);
+            return new Dimensions(0, 0);
         }
 
         public void ExportProduct(string input, List<StoreObject> ItemContainer)
@@ -132,19 +121,19 @@ namespace WarehouseSystem
 
             foreach (var item in ItemContainer)
             {
-                if((item.CatalogueNumber == catNumber) && (item.Quantity > 0))
+                if ((item.CatalogueNumber == catNumber) && (item.Quantity > 0))
                 {
                     item.Quantity--;
                     MessageBox.Show("Product exported!");
                     break;
                 }
-                else if((item.CatalogueNumber == catNumber) && (item.Quantity == 0))
+                else if ((item.CatalogueNumber == catNumber) && (item.Quantity == 0))
                 {
                     MessageBox.Show("Product is out of stock!");
                     break;
                 }
             }
         }
-        
+
     }
 }

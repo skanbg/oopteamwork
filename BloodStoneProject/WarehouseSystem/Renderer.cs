@@ -231,10 +231,8 @@ namespace WarehouseSystem
                 bool addProduct = true;
                 var enumValue = Enum.Parse(typeof(Branch), this.window.productCategories.SelectedValue.ToString(), true);
                 var getClassNameFromBranch = ((BranchToClassName)((int)enumValue)).ToString();
-                //System.Windows.MessageBox.Show("WarehouseSystem." + getClassNameFromBranch);
                 var product = Activator.CreateInstance(Type.GetType("WarehouseSystem." + getClassNameFromBranch, true));
                 var list = product.GetType().GetProperties();
-                //System.Windows.MessageBox.Show(list[0].ToString());
                 int propertyIndex = 0;
 
                 foreach (var property in PropertyContents)
@@ -243,8 +241,6 @@ namespace WarehouseSystem
 
                     if (controlType.Name == "TextBox")
                     {
-                        //System.Windows.MessageBox.Show(property.GetType().GetProperty("Text").GetValue(property).ToString());
-                        //System.Windows.MessageBox.Show(controlType.GetProperty("Text").ToString());
                         if (controlType.GetProperty("Text") != null)
                         {
                             var controlValue = property.GetType().GetProperty("Text").GetValue(property).ToString();
@@ -253,20 +249,15 @@ namespace WarehouseSystem
                             if (propertyType.Name == "Branch")
                             {
                                 parsedValue = Enum.Parse(typeof(Branch), controlValue);
-                                //parsedValue = (Branch)int.Parse(controlValue);
                             }
                             else if (propertyType.Name == "Dimensions")
                             {
 
                                 parsedValue = InstanceStore.ParseDimensions(controlValue.ToString());
-                                //parsedValue = new Dimensions(1, 1);
                             }
                             else
                             {
-                                //System.Windows.MessageBox.Show(controlValue.ToString());
-                                //System.Windows.MessageBox.Show(propertyType.GetTypeInfo().ToString());
                                 parsedValue = Convert.ChangeType(controlValue.ToString(), propertyType.GetTypeInfo());
-                                //parsedValue = Convert.ChangeType(controlValue, typeof(Int32));
                             }
                             list[propertyIndex].SetValue(product, parsedValue);
                         }
@@ -277,8 +268,6 @@ namespace WarehouseSystem
                     }
                     else if (controlType.Name == "ComboBox")
                     {
-                        //System.Windows.MessageBox.Show(property.GetType().GetProperty("SelectedValue").GetValue(property).ToString());
-                        //System.Windows.MessageBox.Show(controlType.GetProperty("SelectedValue").GetValue(property).ToString());
                         if (controlType.GetProperty("SelectedValue") != null)
                         {
                             var propertyType = list[propertyIndex].PropertyType;
@@ -307,7 +296,6 @@ namespace WarehouseSystem
 
                     if (addProduct != true)
                     {
-                        //System.Windows.MessageBox.Show(propertyIndex.ToString());
                         break;
                     }
                     propertyIndex++;
@@ -329,7 +317,7 @@ namespace WarehouseSystem
             }
             finally
             {
-                //InstanceStore.SaveStore();
+
             }
         }
 

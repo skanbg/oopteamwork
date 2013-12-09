@@ -58,6 +58,7 @@
     <Compile Include="IRenderer.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="SanitaryObject.cs" />
+    <Compile Include="SelectCategoryException.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="StoreObject.cs" />
     <Compile Include="ToolObject.cs" />

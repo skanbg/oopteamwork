@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace WarehouseSystem
 {
+    using System;
+
     public class MachineryObject : StoreObject, IMeasureable
     {
         private Dimensions dimensions;
@@ -12,7 +10,6 @@ namespace WarehouseSystem
 
         public MachineryObject()
         {
-
         }
 
         public MachineryObject(string catalogueNumber, string manufacturer, string model, string description, int quantity, Branch category, decimal price, Dimensions dimensions, double weight)

@@ -1,4 +1,4 @@
-﻿
+
 namespace WarehouseSystem
 {
     using System;
@@ -24,17 +24,19 @@ namespace WarehouseSystem
 
                     while (productToken != null)
                     {
+                        //Split by new line to products
                         var splitedProductProperties = productToken.Split(new string[] { " ~obj~ " }, StringSplitOptions.RemoveEmptyEntries);
                         Type classType = Type.GetType("WarehouseSystem." + splitedProductProperties[0].Trim(), true);
                         var currentSettings = Activator.CreateInstance(classType);
+                        //Split by symbol ~|~ to every property of the product
                         splitedProductProperties = splitedProductProperties[1].Split(new string[] { " ~|~ " }, StringSplitOptions.RemoveEmptyEntries);
-                        int counter = 0;
                         foreach (var productProperty in splitedProductProperties)
                         {
-                            counter++;
+                            //Split by symbols ~~ to class name(product category) and properties
                             var propertyInfos = productProperty.Split(new string[] { "~~" }, StringSplitOptions.RemoveEmptyEntries);
                             var property = classType.GetProperty(propertyInfos[0]);
                             var type = property.PropertyType;
+                            //Parsing values using correct type from reflection
                             dynamic newValue;
                             if (type.Name == "Branch")
                             {
@@ -59,6 +61,7 @@ namespace WarehouseSystem
                             }
                             property.SetValue(currentSettings, newValue);
                         }
+                        //Adding the new created product to the list of products
                         this.AddProduct(currentSettings as StoreObject);
                         productToken = productReader.ReadLine();
                     }
@@ -66,7 +69,7 @@ namespace WarehouseSystem
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.ToString());
+                System.Windows.MessageBox.Show("Failed to load products!");
             }
         }
 
@@ -81,6 +84,7 @@ namespace WarehouseSystem
                     productsStream.AppendFormat("{0} ~obj~ ", product.GetType().Name);
                     var classType = product.GetType();
                     bool isItFirstProp = true;
+                    //Concatenating each property of the object to the stringbuilder
                     foreach (var property in classType.GetProperties())
                     {
                         if (isItFirstProp)

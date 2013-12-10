@@ -33,17 +33,20 @@ namespace WarehouseSystem
             this.window.AddButton.Click += AddProduct;
         }
 
+        // Loading the product categories to the initial add product screen
         private void LoadCategories(DesktopStore desktopStore)
         {
             this.window.productCategories.ItemsSource = desktopStore.GetCategories();
         }
-
+        
+        // Loading the existing product categories to the category tab
         private void LoadCategoryTabs()
         {
             var existingCategories = ItemContainer.Select(x => x.Category.ToString()).Distinct().ToList<string>();
             CreateInnerTabsWithContent(existingCategories);
         }
 
+        // Generating all products to all products tab
         public void GenerateAllProducts()
         {
             this.window.AllProductsStack.Children.Clear();
@@ -57,7 +60,6 @@ namespace WarehouseSystem
                     HorizontalAlignment = HorizontalAlignment.Left,
                     Width = 170,
                     Margin = new Thickness(24, 0, 0, 5),
-                    //Background = Brushes.LightSalmon
                     Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(160, 208, 237))
 
                 };
@@ -69,6 +71,7 @@ namespace WarehouseSystem
             }
         }
 
+        // This function loads subtabs in the 
         private void CreateInnerTabsWithContent(List<string> categories)
         {
             this.window.CategorySubContainer.Items.Clear();
@@ -114,6 +117,7 @@ namespace WarehouseSystem
             }
         }
 
+        // Combobox eventhandler, handles category changes
         private void ChangeValue(object sender, SelectionChangedEventArgs e)
         {
             switch (this.window.productCategories.SelectedIndex)
@@ -153,6 +157,7 @@ namespace WarehouseSystem
             }
         }
 
+        // Generates the input fields, depending to the selected category
         private void GenerateInputFields(StoreObject obj)
         {
             PropertyContents.Clear();
@@ -228,6 +233,7 @@ namespace WarehouseSystem
             }
         }
 
+        // Add product button handler
         private void AddProduct(object sender, RoutedEventArgs e)
         {
             try
@@ -321,7 +327,7 @@ namespace WarehouseSystem
                     InstanceStore.SaveStore();
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 //TODO: Check all control fields(input) for empty value
                 //System.Windows.MessageBox.Show(ex.ToString());
@@ -333,6 +339,7 @@ namespace WarehouseSystem
             }
         }
 
+        // Export button event handler
         private void ExportProduct(object sender, RoutedEventArgs e)
         {
             InstanceStore.ExportProduct((sender as Button).Content.ToString(), ItemContainer);

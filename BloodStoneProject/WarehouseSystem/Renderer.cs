@@ -57,14 +57,15 @@ namespace WarehouseSystem
                     HorizontalAlignment = HorizontalAlignment.Left,
                     Width = 170,
                     Margin = new Thickness(24, 0, 0, 5),
-                    Background = Brushes.LightSalmon
+                    //Background = Brushes.LightSalmon
+                    Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(160, 208, 237))
 
                 };
                 exportButton.Click += ExportProduct;
                 StackPanel itemProps = new StackPanel();
                 itemProps.Children.Add(new Label { Content = product.ToString(), Height = 250 });
                 itemProps.Children.Add(exportButton);
-                this.window.AllProductsStack.Children.Add(new Expander() { Header = product.Manufacturer + " " + "'" + product.Model + "'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas"), Background = Brushes.Moccasin, Margin = new Thickness(2) });
+                this.window.AllProductsStack.Children.Add(new Expander() { Header = product.Manufacturer + " " + "'" + product.Model + "'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas"), Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(204, 204, 204, 204)), Margin = new Thickness(2) });
             }
         }
 
@@ -75,15 +76,16 @@ namespace WarehouseSystem
             foreach (var category in categories)
             {
                 TabItem currentItem = new TabItem();
-                currentItem.Background = Brushes.LightSteelBlue;
+                currentItem.Background = (Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#BDCBFF");
+                //currentItem.Background = Brushes.LightSteelBlue;
                 currentItem.Header = "_" + category;
                 var categoryStackPannel = new StackPanel();
-                categoryStackPannel.Background = Brushes.Azure;
+                //categoryStackPannel.Background = (Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#FBFFF4");
                 var categoryFilter =
                     from x in ItemContainer
                     where x.Category.ToString() == category.ToString()
                     select x;
-
+                
                 StackPanel sp = new StackPanel();
                 foreach (var item in categoryFilter)
                 {
@@ -95,13 +97,14 @@ namespace WarehouseSystem
                         HorizontalAlignment = HorizontalAlignment.Left,
                         Width = 170,
                         Margin = new Thickness(24, 0, 0, 5),
-                        Background = Brushes.LightSalmon
+                        Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(160, 208, 237)),
                     };
+
                     exportButton.Click += ExportProduct;
                     StackPanel itemProps = new StackPanel();
                     itemProps.Children.Add(new Label { Content = item.ToString(), Height = 250 });
                     itemProps.Children.Add(exportButton);
-                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " " + "'" + item.Model + "'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas"), Background = Brushes.Moccasin, Margin = new Thickness(2) });
+                    sp.Children.Add(new Expander() { Header = item.Manufacturer + " " + "'" + item.Model + "'", Content = itemProps, FontSize = 20, FontWeight = FontWeights.Bold, FontStyle = FontStyles.Italic, FontFamily = new FontFamily("Consolas"), Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(204, 204, 204, 204)), Margin = new Thickness(2) });
                 }
 
                 categoryStackPannel.Children.Add(new ScrollViewer { Content = sp, CanContentScroll = true, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
@@ -274,7 +277,7 @@ namespace WarehouseSystem
                         {
                             var propertyType = list[propertyIndex].PropertyType;
                             dynamic parsedValue;
-                            if(property.GetType().GetProperty("SelectedValue").GetValue(property) == null)
+                            if (property.GetType().GetProperty("SelectedValue").GetValue(property) == null)
                             {
                                 throw new SelectCategoryException();
                             }
@@ -298,7 +301,7 @@ namespace WarehouseSystem
                         {
                             MessageBox.Show(sce.Message);
                             addProduct = false;
-                            
+
                         }
                     }
 

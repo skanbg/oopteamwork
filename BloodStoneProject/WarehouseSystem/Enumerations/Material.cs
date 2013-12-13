@@ -1,5 +1,5 @@
 ﻿
-namespace WarehouseSystem
+namespace WarehouseSystem.Enumerations
 {
     public enum Material
     {

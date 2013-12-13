@@ -1,5 +1,5 @@
 ﻿
-namespace WarehouseSystem
+namespace WarehouseSystem.Engine
 {
     using System;
     using System.Collections.Generic;
@@ -8,8 +8,13 @@ namespace WarehouseSystem
     using System.Windows.Controls;
     using System.Windows.Media;
     using System.Reflection;
+    using WarehouseSystem.Interfaces;
+    using WarehouseSystem.StoreObjects;
+    using WarehouseSystem.Store;
+    using WarehouseSystem.Enumerations;
+    using WarehouseSystem.Exceptions;
 
-    public class Renderer : IRenderer
+    public class ProgramEngine : IEngine
     {
         public static List<StoreObject> ItemContainer = new List<StoreObject>();
         public static List<UIElement> PropertyContents = new List<UIElement>();
@@ -17,12 +22,12 @@ namespace WarehouseSystem
 
         private MainWindow window;
 
-        public Renderer(MainWindow window)
+        public ProgramEngine(MainWindow window)
         {
             this.window = window;
         }
 
-        public void Render()
+        public void Run()
         {
             this.window.DataContext = InstanceStore;
             ItemContainer = InstanceStore.GetAllProducts();
@@ -185,7 +190,7 @@ namespace WarehouseSystem
                 {
                     var colors = new List<string>();
 
-                    foreach (var color in Enum.GetValues(typeof(Color)))
+                    foreach (var color in Enum.GetValues(typeof(WarehouseSystem.Enumerations.Color)))
                     {
                         colors.Add(color.ToString());
                     }
@@ -241,7 +246,7 @@ namespace WarehouseSystem
                 bool addProduct = true;
                 var enumValue = Enum.Parse(typeof(Branch), this.window.productCategories.SelectedValue.ToString(), true);
                 var getClassNameFromBranch = ((BranchToClassName)((int)enumValue)).ToString();
-                var product = Activator.CreateInstance(Type.GetType("WarehouseSystem." + getClassNameFromBranch, true));
+                var product = Activator.CreateInstance(Type.GetType("WarehouseSystem.StoreObjects." + getClassNameFromBranch, true));
                 var list = product.GetType().GetProperties();
                 int propertyIndex = 0;
 
@@ -295,7 +300,7 @@ namespace WarehouseSystem
                             }
                             else if (propertyType.Name == "Color")
                             {
-                                parsedValue = Enum.Parse(typeof(Color), controlValue);
+                                parsedValue = Enum.Parse(typeof(WarehouseSystem.Enumerations.Color), controlValue);
                             }
                             else
                             {

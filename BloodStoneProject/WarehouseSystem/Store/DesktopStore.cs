@@ -1,5 +1,5 @@
 
-namespace WarehouseSystem
+namespace WarehouseSystem.Store
 {
     using System;
     using System.Collections.Generic;
@@ -9,15 +9,20 @@ namespace WarehouseSystem
     using System.Reflection;
     using System.Windows.Controls;
     using System.Windows;
+    using WarehouseSystem.StoreObjects;
+    using WarehouseSystem.Enumerations;
+    using WarehouseSystem.Structs;
 
     public class DesktopStore : Store
-    {        
+    {
+        private static string SolutionPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+
         public override void LoadStore()
         {
             try
             {
                 //Loading products from file
-                var productReader = new StreamReader("ProductList.txt");
+                var productReader = new StreamReader(SolutionPath + @"\ProductList.txt");
                 using (productReader)
                 {
                     string productToken = productReader.ReadLine();
@@ -26,7 +31,7 @@ namespace WarehouseSystem
                     {
                         //Split by new line to products
                         var splitedProductProperties = productToken.Split(new string[] { " ~obj~ " }, StringSplitOptions.RemoveEmptyEntries);
-                        Type classType = Type.GetType("WarehouseSystem." + splitedProductProperties[0].Trim(), true);
+                        Type classType = Type.GetType("WarehouseSystem.StoreObjects." + splitedProductProperties[0].Trim(), true);
                         var currentSettings = Activator.CreateInstance(classType);
                         //Split by symbol ~|~ to every property of the product
                         splitedProductProperties = splitedProductProperties[1].Split(new string[] { " ~|~ " }, StringSplitOptions.RemoveEmptyEntries);
@@ -75,7 +80,7 @@ namespace WarehouseSystem
 
         public override void SaveStore()
         {
-            var productsWriter = new StreamWriter("ProductList.txt");
+            var productsWriter = new StreamWriter(SolutionPath + @"\ProductList.txt");
             using (productsWriter)
             {
                 foreach (var product in this.productsList)

@@ -1,6 +1,8 @@
 ﻿
-namespace WarehouseSystem
+namespace WarehouseSystem.Interfaces
 {
+    using WarehouseSystem.Enumerations;
+
     public interface IStoreObject
     {
         string CatalogueNumber { get; set; }

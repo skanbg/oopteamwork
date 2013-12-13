@@ -1,8 +1,10 @@
 ﻿
-namespace WarehouseSystem
+namespace WarehouseSystem.StoreObjects
 {
     using System;
     using System.Text;
+    using WarehouseSystem.Interfaces;
+    using WarehouseSystem.Enumerations;
 
     public abstract class StoreObject : IStoreObject
     {

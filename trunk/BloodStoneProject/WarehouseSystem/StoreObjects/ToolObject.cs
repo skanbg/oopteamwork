@@ -1,7 +1,9 @@
 ﻿
-namespace WarehouseSystem
+namespace WarehouseSystem.StoreObjects
 {
     using System;
+    using WarehouseSystem.Interfaces;
+    using WarehouseSystem.Enumerations;
 
     public class ToolObject : StoreObject, IMaterial
     {

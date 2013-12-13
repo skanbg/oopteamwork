@@ -1,8 +1,10 @@
 ﻿
-namespace WarehouseSystem
+namespace WarehouseSystem.Store
 {
     using System;
     using System.Collections.Generic;
+    using WarehouseSystem.Enumerations;
+    using WarehouseSystem.StoreObjects;
 
     public abstract class Store
     {

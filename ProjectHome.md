@@ -1,0 +1,1 @@
+Warehouse Import/Export system, appropriate for all kind of stores. It provides information about the products in store, also the opportunity to add and remove new products.
